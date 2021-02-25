@@ -1,16 +1,21 @@
-import java.util.Date;
-
 public class Task {
 
 
 //////////////fields
-    private String label;
-    private long date;
-    boolean achieved;
+    private String title;
+    private long dueDate;
+    private String project;
+    boolean achieved; // status
 
 
 //////////////constructor
 
+    public Task(String title, String project, long dueDate) {
+        this.title = title;
+        this.project = project;
+        this.dueDate = dueDate;
+        boolean achieved = false;
+    }
 
 
 //////////////methods
@@ -18,25 +23,33 @@ public class Task {
 
 
 /////////////////////////////////////date
-    public long getDate(){
-        return date;
+    public long getDueDate(){
+        return dueDate;
     }
 
-    public void setDate(long date) {
-        this.date = date;
+    public void setDueDate(long dueDate) {
+        this.dueDate = dueDate;
     }
 
     //////////////////////////////////////label
 
-    public String getLabel(){
-        return label;
+    public String getTitle(){
+        return title;
     }
 
-    public void setLabel(String label) {
-        this.label = label;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
+//////////////////////////////////////project
 
+    public String getProject() {
+        return project;
+    }
+
+    public void setProject(String project) {
+        this.project = project;
+    }
 
     //////////////////////////////////////achieved
     public boolean isAchieved() {
@@ -46,4 +59,10 @@ public class Task {
     public void setAchieved(boolean achieved) {
         this.achieved = achieved;
     }
+
+
+
+
+
+
 }
