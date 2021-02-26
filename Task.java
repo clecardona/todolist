@@ -3,14 +3,14 @@ public class Task implements java.io.Serializable{
 
 //////////////fields
     private String title;
-    private long dueDate;
+    private String dueDate;
     private String project;
     boolean isDone; // status
 
 
 //////////////constructor
 
-    public Task(String title, String project, long dueDate) {
+    public Task(String title, String project, String dueDate) {
         this.title = title;
         this.project = project;
         this.dueDate = dueDate;
@@ -22,11 +22,11 @@ public class Task implements java.io.Serializable{
 
 
 /////////////////////////////////////date
-    public long getDueDate(){
+    public String getDueDate(){
         return dueDate;
     }
 
-    public void setDueDate(long dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
 

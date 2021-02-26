@@ -91,20 +91,22 @@ public class Menu implements Commands , Serializable {
 
     /**
      * add a new task to the list
-     * isDone is set to  false
+     * isDone is set to  false by default
      */
     @Override
     public void addNewTask() {
     Scanner scanner = new Scanner(System.in); //initiate a scanner to get user input
 
         System.out.println("Enter Title:  ");
-        String newTitle = scanner.next();
+        String newTitle = scanner.nextLine();
 
         System.out.println("Enter Project related :  ");
-        String newProject = scanner.next();
+        String newProject = scanner.nextLine();
 
-        System.out.println("End date YYYYMMDD :  ");
-        long newDueDate = scanner.nextInt();
+        System.out.println("Enter date (YYYY-MM-DD) :");
+        String date = scanner.nextLine();
+        String newDueDate = Checker.getValidDate(date);
+
 
         taskLibrary1.add(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
 
