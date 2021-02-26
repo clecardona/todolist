@@ -1,11 +1,11 @@
-public class Task {
+public class Task implements java.io.Serializable{
 
 
 //////////////fields
     private String title;
     private long dueDate;
     private String project;
-    boolean achieved; // status
+    boolean isDone; // status
 
 
 //////////////constructor
@@ -14,12 +14,11 @@ public class Task {
         this.title = title;
         this.project = project;
         this.dueDate = dueDate;
-        boolean achieved = false;
+        boolean isDone = false;
     }
 
 
 //////////////methods
-
 
 
 /////////////////////////////////////date
@@ -52,12 +51,16 @@ public class Task {
     }
 
     //////////////////////////////////////achieved
-    public boolean isAchieved() {
-        return achieved;
+    public String getStatus() {
+            if(!isDone){
+                return "To do";
+            }
+        return "Done";
+
     }
 
-    public void setAchieved(boolean achieved) {
-        this.achieved = achieved;
+    public void setStatus(boolean done) {
+        this.isDone = done;
     }
 
 

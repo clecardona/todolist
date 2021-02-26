@@ -22,11 +22,14 @@ public class Main {
      */
     public static void start()
         {
+
             Menu menu = new Menu();
+
+            menu.loadFromFile();
 
             menu.sayWelcome();
 
-            // Enter the main command loop.  Here we repeatedly read commands and
+            // Enter the main command loop. Here we repeatedly read commands and
             // execute them until the session is over ( ie Save and Quit is selected)
 
 
@@ -38,6 +41,7 @@ public class Main {
 
             }
             menu.sayGoodbye();
+            menu.quit();
         }
 
     }

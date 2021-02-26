@@ -1,37 +1,37 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.io.*;
+import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Menu implements Commands {
+public class Menu implements Commands , Serializable {
 
     //fields
-
-
+    LinkedList<Task> taskLibrary1 ; // instantiate a linkedlist object
 
     //constructor
 
+    public Menu() {
+        this.taskLibrary1 = new LinkedList<Task>();
+    }
 
-    //methods implemented
+    //methods
     /**
      * Print out the opening message for the player.
      */
-    public void sayWelcome()
-    {
+    public void sayWelcome() {
         System.out.println();
         System.out.println("Welcome to ToDoLy :                                                    2020 - © Clement Cardona\n" +
-                "You have X tasks todo and Y tasks are done !");
+                "You have X tasks todo and Y tasks are done !");//TODO- implements X and Y from file reading - and process count of the "isDone boolean"
 
     }
 
-    public void sayGoodbye()
-    {
+    public void sayGoodbye() {
         System.out.println();
         System.out.println("Thank you for using ToDoLy  \n" +
                 "Goodbye");
 
     }
-    public void displayMenu()
-    {
+
+    public void displayMenu() {
         System.out.println(
                 "Options :\n" +
                 ">>> (1) Show tasks list (by date or project) \n" +
@@ -41,7 +41,6 @@ public class Menu implements Commands {
         System.out.println("Pick an option: ");
 
     }
-
 
     public boolean processCommand(){
 
@@ -54,42 +53,46 @@ public class Menu implements Commands {
         switch (userChoice) {
             case 1:
                 displayTasks();
-                askedToQuit=false;
-                break;
+                 break;
 
             case 2:
                 addNewTask();
-                askedToQuit=false;
                 break;
 
             case 3:
                 editTask();
-                askedToQuit=false;
                 break;
 
             case 4:
-                save();
-                quit();// return askedToQuit = true;
+                saveToFile();
                 askedToQuit=true;
                 break;
 
             default:System.out.println("Enter a valid number");
         }
 
-
        return askedToQuit;
 
     }
 
+    //methods implemented from Commands interface
 
-    //methods implemented
-
+    /**
+     * Display the tasks stored done and not done
+     *
+     */
     @Override
-    public String displayTasks() {
-        System.out.println("Here is a list of the tasks : \n A , B, C ");
-        return "TASKS LIST";
+    public void displayTasks() {
+        for (int i = 0; i < taskLibrary1.size(); i++) {
+            System.out.println(taskLibrary1.get(i).getTitle() + " - " + taskLibrary1.get(i).getProject() + " - due date: "
+                    + taskLibrary1.get(i).getDueDate()+ " - Status : " +taskLibrary1.get(i).getStatus());
+        }
     }
 
+    /**
+     * add a new task to the list
+     * isDone is set to  false
+     */
     @Override
     public void addNewTask() {
     Scanner scanner = new Scanner(System.in); //initiate a scanner to get user input
@@ -103,16 +106,11 @@ public class Menu implements Commands {
         System.out.println("End date YYYYMMDD :  ");
         long newDueDate = scanner.nextInt();
 
-        TaskLibrary taskLibrary1 = new TaskLibrary(); // instantiate a taskLibrary object
+        taskLibrary1.add(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
 
-        taskLibrary1.addOneTask(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
+        System.out.println("The task has been added successfully ");//TODO - associate with a boolean + a "if true"?
 
-
-    System.out.println("The task has been added successfully ");//TODO - associate with a boolean + a "if true"
-    taskLibrary1.print(); //just to test  TODO - reorient to "Show Tasks list"
     }
-
-
 
 
     @Override
@@ -121,17 +119,67 @@ public class Menu implements Commands {
     }
 
     @Override
-    public void save() {
-        System.out.println("The modifications has been saved to file successfully");
-    }
+    public void saveToFile() {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("taskFile.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(taskLibrary1);
+            out.close();
+            fileOut.close();
+            System.out.println("Serialized data is saved in taskFile.txt");
+        } catch (IOException i) {
+            i.printStackTrace();
+        }
+
+
+    } // TODO serialization
 
     @Override
+    public void loadFromFile() {
+
+        File path1 = new File ("taskFile.txt");
+        if (path1.exists()){
+            try {
+                FileInputStream fileIn = new FileInputStream("taskFile.txt");
+                ObjectInputStream in = new ObjectInputStream(fileIn);
+                taskLibrary1 = (LinkedList<Task>) in.readObject();
+
+                in.close();
+                fileIn.close();
+
+            } catch (IOException i) {
+                i.printStackTrace();
+
+            } catch (ClassNotFoundException c) {
+                System.out.println(" class not found");
+                c.printStackTrace();
+
+            }
+
+        }
+    }
+
+    /**
+     * exit the program
+     */
+    @Override
     public void quit() {
-        System.out.println("Quiting ");
+        System.out.println("Quitting . . .");
+        System.exit(0);
 
     }
 
-
+    /**TODO - implement methods
+     *
+     *
+     * markasdone()
+     *
+     *  remove()
+     *
+     *
+     *
+     *
+     */
 
 
 }
