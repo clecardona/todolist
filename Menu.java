@@ -32,8 +32,9 @@ public class Menu implements Commands , Serializable {
     }
 
     public void displayMenu() {
+        System.out.println();
         System.out.println(
-                "Options :\n" +
+                "Menu :\n" +
                 ">>> (1) Show tasks list (by date or project) \n" +
                 ">>> (2) Add new Task\n" +
                 ">>> (3) Edit Task (update, mark as done, remove)\n" +
@@ -98,10 +99,12 @@ public class Menu implements Commands , Serializable {
     Scanner scanner = new Scanner(System.in); //initiate a scanner to get user input
 
         System.out.println("Enter Title:  ");
-        String newTitle = scanner.nextLine();
+        String title = scanner.nextLine();
+        String newTitle = Checker.getValidString(title,"Title");
 
         System.out.println("Enter Project related :  ");
-        String newProject = scanner.nextLine();
+        String project = scanner.nextLine();
+        String newProject = Checker.getValidString(project,"Project");
 
         System.out.println("Enter date (YYYY-MM-DD) :");
         String date = scanner.nextLine();
