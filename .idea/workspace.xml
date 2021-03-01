@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ovF42HsSy0B17NAiAAqEIogq1M" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="todolist" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests" />
+      <module name="todolist" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Tests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="" />
+      <created>1614158963797</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614158963797</updated>
+      <workItem from="1614158969971" duration="9417000" />
+      <workItem from="1614171013698" duration="5133000" />
+      <workItem from="1614178182370" duration="1603000" />
+      <workItem from="1614323057318" duration="38657000" />
+      <workItem from="1614629345361" duration="1203000" />
+      <workItem from="1614630970534" duration="461000" />
+    </task>
+    <task id="LOCAL-00001" summary="update 25/02">
+      <created>1614262434206</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1614262434206</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10;Useless class removed :&#10;- TaskLibrary">
+      <created>1614355420841</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614355420841</updated>
+    </task>
+    <task id="LOCAL-00003" summary="new methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10; class implemented :&#10;- Checker( will automatize the checkers/regex)">
+      <created>1614378939782</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1614378939782</updated>
+    </task>
+    <task id="LOCAL-00004" summary="class Checker now escape empty input">
+      <created>1614380344004</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1614380344004</updated>
+    </task>
+    <task id="LOCAL-00005" summary="maven setup">
+      <created>1614631302810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614631302810</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update 25/02" />
+    <MESSAGE value="Methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10;Useless class removed :&#10;- TaskLibrary" />
+    <MESSAGE value="new methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10; class implemented :&#10;- Checker( will automatize the checkers/regex)" />
+    <MESSAGE value="class Checker now escape empty input" />
+    <MESSAGE value="maven setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="maven setup" />
+  </component>
+</project>
