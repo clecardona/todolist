@@ -1,5 +1,6 @@
-# todolist
-<img src="https://cdn.onlinewebfonts.com/svg/img_533261.png" alt="logo" width="200"/>
+
+# todolist 
+<img src="https://cdn.onlinewebfonts.com/svg/img_533261.png" alt="logo" width="70"/> 
 
 ## Table of contents
 
