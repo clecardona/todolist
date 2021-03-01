@@ -1,5 +1,5 @@
 # todolist
-![logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS94Hx7mznKUuJChS2soZ-BM78fp1b-Qv8yhA&usqp=CAU)
+<img src="https://cdn.onlinewebfonts.com/svg/img_533261.png" alt="logo" width="200"/>
 
 ## Table of contents
 
