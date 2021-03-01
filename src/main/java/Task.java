@@ -1,4 +1,4 @@
-public class Task implements java.io.Serializable {
+public class Task extends Menu implements java.io.Serializable {
 
 
     boolean isDone; // status

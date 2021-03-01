@@ -1,4 +1,4 @@
-public class Main {
+public class Main extends Menu {
 
     /**
      * This class is the main class of the "Todolist" application.

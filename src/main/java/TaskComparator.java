@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class TaskComparator<compareMode> implements Comparator<Task> {
+public class TaskComparator<compareMode> extends Menu implements Comparator<Task> {
 
     ///fields
 

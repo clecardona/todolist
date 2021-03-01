@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="" />
+    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Checker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInputChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MenuTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -33,11 +43,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.MenuTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="todolist" />
@@ -63,8 +76,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MenuTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MenuTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Tests" />
       </list>
@@ -83,7 +106,7 @@
       <workItem from="1614178182370" duration="1603000" />
       <workItem from="1614323057318" duration="38657000" />
       <workItem from="1614629345361" duration="1203000" />
-      <workItem from="1614630970534" duration="461000" />
+      <workItem from="1614630970534" duration="4559000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>
@@ -120,18 +143,44 @@
       <option name="project" value="LOCAL" />
       <updated>1614631302810</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="maven setup">
+      <created>1614631661700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614631661700</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="update 25/02" />
     <MESSAGE value="Methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10;Useless class removed :&#10;- TaskLibrary" />
     <MESSAGE value="new methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10; class implemented :&#10;- Checker( will automatize the checkers/regex)" />
     <MESSAGE value="class Checker now escape empty input" />
     <MESSAGE value="maven setup" />
     <option name="LAST_COMMIT_MESSAGE" value="maven setup" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Menu.java</url>
+          <line>184</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Menu.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

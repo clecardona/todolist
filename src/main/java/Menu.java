@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Menu implements Commands, Serializable {
 
     //fields
-    LinkedList<Task> taskLibrary1; // instantiate a LinkedList object
+    LinkedList<Task> taskLibrary1;
 
-    //constructor
+    //Constructor
 
     public Menu() {
         this.taskLibrary1 = new LinkedList<>();
@@ -18,6 +18,7 @@ public class Menu implements Commands, Serializable {
     /**
      * Print out the opening message for the player.
      */
+
     public void sayWelcome() {
         int taskDone = countDone(taskLibrary1);
         int taskToDo = taskLibrary1.size() - countDone(taskLibrary1);
@@ -161,15 +162,15 @@ public class Menu implements Commands, Serializable {
 
         System.out.println("Enter Title:  ");
         String title = scanner.nextLine();
-        String newTitle = Checker.getValidString(title, "Title");
+        String newTitle = UserInputChecker.getValidString(title, "Title");
 
         System.out.println("Enter Project related :  ");
         String project = scanner.nextLine();
-        String newProject = Checker.getValidString(project, "Project");
+        String newProject = UserInputChecker.getValidString(project, "Project");
 
         System.out.println("Enter date (YYYY-MM-DD) :");
         String date = scanner.nextLine();
-        String newDueDate = Checker.getValidDate(date);
+        String newDueDate = UserInputChecker.getValidDate(date);
 
 
         taskLibrary1.add(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
@@ -214,7 +215,7 @@ public class Menu implements Commands, Serializable {
                     String title = sc.nextLine();
 
                     if (!title.equals("")) {
-                        String newTitle = Checker.getValidString(title, "Title");
+                        String newTitle = UserInputChecker.getValidString(title, "Title");
                         taskLibrary1.get(taskSelected - 1).setTitle(newTitle);
                     }
 
@@ -224,7 +225,7 @@ public class Menu implements Commands, Serializable {
                     String project = sc.nextLine();
 
                     if (!project.equals("")) {
-                        String newProject = Checker.getValidString(project, "Project");
+                        String newProject = UserInputChecker.getValidString(project, "Project");
                         taskLibrary1.get(taskSelected - 1).setProject(newProject);
                     }
 
@@ -233,8 +234,8 @@ public class Menu implements Commands, Serializable {
                     String date = sc.nextLine();
 
                     if (!date.equals("")) {
-                        String newDueDate = Checker.getValidDate(date);
-                        taskLibrary1.get(taskSelected - 1).setTitle(newDueDate);
+                        String newDueDate = UserInputChecker.getValidDate(date);
+                        taskLibrary1.get(taskSelected - 1).setDueDate(newDueDate);
                     }
 
 

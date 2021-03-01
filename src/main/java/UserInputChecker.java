@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Checker {
+public class UserInputChecker extends Menu {
 
 
     /////// static methods
