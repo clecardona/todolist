@@ -4,18 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="screenshots">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/add_task_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/edit_task_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/quit_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/show_task_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/todolist_class_diagram.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/add_task_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/edit_task_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/quit_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/show_task_menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/todolist_class_diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TaskComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TaskComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UserInputChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UserInputChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/taskFile.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MenuTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/taskFile.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="clecardona" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ovF42HsSy0B17NAiAAqEIogq1M" />
@@ -65,19 +73,6 @@
     <configuration name="Tests" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tests" />
       <module name="todolist" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -126,7 +121,8 @@
       <workItem from="1614630970534" duration="9585000" />
       <workItem from="1614767450747" duration="633000" />
       <workItem from="1614769485392" duration="16074000" />
-      <workItem from="1614805026492" duration="3674000" />
+      <workItem from="1614805026492" duration="4389000" />
+      <workItem from="1614809676878" duration="535000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>
@@ -177,11 +173,32 @@
       <option name="project" value="LOCAL" />
       <updated>1614636900482</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- formatting done&#10;&#10;-methods implemented:&#10;  - markAsDone()&#10;  - update()&#10;  - removeTask()&#10; &#10; -InputMismatchExceptions handled&#10; &#10; -serialVersionUID = 0L provided">
+      <created>1614809076049</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614809076049</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UpdateCopyrightCheckinHandler">
+    <option name="UPDATE_COPYRIGHT" value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
@@ -191,7 +208,12 @@
     <MESSAGE value="class Checker now escape empty input" />
     <MESSAGE value="maven setup" />
     <MESSAGE value="-test class MenuTest created &#10;-classDiagram created&#10;-README.md updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="-test class MenuTest created &#10;-classDiagram created&#10;-README.md updated" />
+    <MESSAGE value="- formatting done&#10;&#10;-methods implemented:&#10;  - markAsDone()&#10;  - update()&#10;  - removeTask()&#10; &#10; -InputMismatchExceptions handled&#10; &#10; -serialVersionUID = 0L provided" />
+    <MESSAGE value="screenshots&#10;diagram&#10;sourcefile serialized" />
+    <MESSAGE value="screenshots&#10;diagram&#10;serialized file" />
+    <MESSAGE value="screenshots" />
+    <option name="LAST_COMMIT_MESSAGE" value="screenshots" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
