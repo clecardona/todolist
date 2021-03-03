@@ -1,6 +1,6 @@
 import java.util.Comparator;
 
-public class TaskComparator<compareMode> extends Menu implements Comparator<Task> {
+public class TaskComparator implements Comparator<Task> {
 
     ///fields
 
@@ -18,8 +18,9 @@ public class TaskComparator<compareMode> extends Menu implements Comparator<Task
      * compare method
      *
      * @param a task to compare
-     * @param b next task to compare
+     * @param b other task to compare
      * @return the personalized comparator in order to sort the tasks list
+     * type of sorting mode -> d: date , p: project , s: status .
      */
     public int compare(Task a, Task b) {
         int result = 0;
