@@ -1,4 +1,4 @@
-public class Main extends Menu {
+public class Main {
 
     /**
      * This class is the main class of the "Todolist" application.
@@ -17,7 +17,7 @@ public class Main extends Menu {
 
     /**
      * Main routine
-     * stops looping when "Save and Quit " is selected
+     * Stops looping when "Save and Quit " is selected ( setting boolean askedToQuit as true )
      */
     public static void run() {
 

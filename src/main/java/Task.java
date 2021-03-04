@@ -1,15 +1,18 @@
-public class Task extends Menu implements java.io.Serializable {
+import java.io.Serial;
+import java.io.Serializable;
 
+public class Task extends Menu implements Serializable {
 
-    boolean isDone; // status
     //////////////fields
+    @Serial
+    private static final long serialVersionUID = 0L;
+
     private String title;
     private String dueDate;
     private String project;
+    boolean isDone;
 
-
-//////////////constructor
-
+    //////////////constructor
     public Task(String title, String project, String dueDate) {
         this.title = title;
         this.project = project;
@@ -17,11 +20,8 @@ public class Task extends Menu implements java.io.Serializable {
         boolean isDone = false;
     }
 
-
 //////////////methods
 
-
-    /////////////////////////////////////date
     public String getDueDate() {
         return dueDate;
     }
@@ -29,8 +29,6 @@ public class Task extends Menu implements java.io.Serializable {
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
     }
-
-    //////////////////////////////////////label
 
     public String getTitle() {
         return title;
@@ -40,8 +38,6 @@ public class Task extends Menu implements java.io.Serializable {
         this.title = title;
     }
 
-//////////////////////////////////////project
-
     public String getProject() {
         return project;
     }
@@ -50,7 +46,6 @@ public class Task extends Menu implements java.io.Serializable {
         this.project = project;
     }
 
-    //////////////////////////////////////achieved
     public String getStatus() {
         if (!isDone) {
             return "to do";
@@ -62,6 +57,5 @@ public class Task extends Menu implements java.io.Serializable {
     public void setStatus(boolean done) {
         this.isDone = done;
     }
-
 
 }
