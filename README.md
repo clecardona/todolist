@@ -1,4 +1,4 @@
-# todolist
+# todolist 
 
 <img src="https://cdn.onlinewebfonts.com/svg/img_533261.png" alt="logo" width="70"/> 
 
@@ -51,4 +51,7 @@ This project run on IDE console. User navigates in the menus by selecting action
 ## Class Diagram
 
 ![cd](src/main/resources/todolist_class_diagram.png)  
+
+
+## Illustrations
 
