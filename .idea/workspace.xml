@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="screenshots">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/add_task_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/edit_task_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/main_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/quit_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/show_task_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/todolist_class_diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/add_task_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/edit_task_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/main_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/quit_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/show_task_menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/todolist_class_diagram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -123,6 +110,7 @@
       <workItem from="1614769485392" duration="16074000" />
       <workItem from="1614805026492" duration="4389000" />
       <workItem from="1614809676878" duration="535000" />
+      <workItem from="1614810308937" duration="786000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>
@@ -180,14 +168,25 @@
       <option name="project" value="LOCAL" />
       <updated>1614809076049</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="screenshots">
+      <created>1614810462121</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1614810462121</updated>
+    </task>
+    <task id="LOCAL-00010" summary="screenshots">
+      <created>1614810483652</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1614810483652</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UpdateCopyrightCheckinHandler">
-    <option name="UPDATE_COPYRIGHT" value="true" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -199,9 +198,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="update 25/02" />
     <MESSAGE value="Methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10;Useless class removed :&#10;- TaskLibrary" />
     <MESSAGE value="new methods implemented:&#10; - loadFromFile()&#10; - saveToFile()&#10; - displayTasks()&#10;&#10; class implemented :&#10;- Checker( will automatize the checkers/regex)" />
@@ -213,9 +214,6 @@
     <MESSAGE value="screenshots&#10;diagram&#10;serialized file" />
     <MESSAGE value="screenshots" />
     <option name="LAST_COMMIT_MESSAGE" value="screenshots" />
-    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
