@@ -52,6 +52,3 @@ This project run on IDE console. User navigates in the menus by selecting action
 
 ![cd](src/main/resources/todolist_class_diagram.png)  
 
-
-## Illustrations
-
