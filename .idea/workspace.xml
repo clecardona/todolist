@@ -6,6 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/todolist/Commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/todolist/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/todolist/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/TaskComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/todolist/TaskComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UserInputChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/todolist/UserInputChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/taskFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/todolist_class_diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/todolist_class_diagram.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MenuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/taskFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/todolist_class_diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/todolist_class_diagram.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +38,9 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1ovF42HsSy0B17NAiAAqEIogq1M" />
   <component name="ProjectViewState">
@@ -51,7 +66,7 @@
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="todolist.Main" />
       <module name="todolist" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -64,13 +79,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in todolist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -97,6 +122,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in todolist" />
         <item itemvalue="JUnit.MenuTest" />
         <item itemvalue="JUnit.MenuTest.testCountDone" />
         <item itemvalue="Application.Tests" />
@@ -122,7 +148,8 @@
       <workItem from="1614805026492" duration="4389000" />
       <workItem from="1614809676878" duration="535000" />
       <workItem from="1614810308937" duration="786000" />
-      <workItem from="1614884007887" duration="1585000" />
+      <workItem from="1614884007887" duration="3820000" />
+      <workItem from="1614955211222" duration="1755000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>

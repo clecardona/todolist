@@ -1,3 +1,5 @@
+package todolist;
+
 import java.util.Scanner;
 
 public class UserInputChecker {
