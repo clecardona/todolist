@@ -1,4 +1,4 @@
-package todolist;
+package com.clecardona;
 
 public interface Commands {
 

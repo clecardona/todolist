@@ -28,9 +28,9 @@ This project run on IDE console. User navigates in the menus by selecting action
 
 ## Screenshots
 
-### todolist.Main menu
+### Main menu
 
-![todolist.Main](src/main/resources/main_menu.png)
+![Main](src/main/resources/main_menu.png)
 
 ### Show tasks list menu
 

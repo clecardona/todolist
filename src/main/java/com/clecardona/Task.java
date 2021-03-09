@@ -1,4 +1,4 @@
-package todolist;
+package com.clecardona;
 
 import java.io.Serial;
 import java.io.Serializable;

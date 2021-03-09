@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import todolist.Menu;
-import todolist.Task;
+import com.clecardona.Menu;
+import com.clecardona.Task;
 
 import java.util.LinkedList;
 
@@ -29,8 +29,24 @@ public class MenuTest {
 
     }
 
+    @Test
+    public void testMarkAsDone() {
+        LinkedList<Task> ll = new LinkedList<Task>();
+        Menu menu = new Menu(ll);
 
+        ll.add(new Task("x", "kk", "2020-02-01"));
+        ll.add(new Task("a", "aa", "2020-02-02"));
+        ll.add(new Task("b", "zz", "2020-02-03"));
 
+        menu.markAsDone(1);
 
+        String expected = "done";
+
+        Assertions.assertEquals(expected, ll.get(0).getStatus());
+
+        menu.markAsDone(2);
+        Assertions.assertEquals(expected, ll.get(1).getStatus());
+
+    }
 
 }

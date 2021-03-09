@@ -1,4 +1,4 @@
-package todolist;
+package com.clecardona;
 
 import java.io.*;
 import java.util.InputMismatchException;
@@ -9,13 +9,23 @@ public class Menu implements Commands, Serializable {
 
     @Serial
     private static final long serialVersionUID = 0L;
+
     ///////////////////fields
-    private LinkedList<Task> taskLibrary1;
+    private LinkedList<Task> listOfTasks;
 
-    ///////////////////Constructor
 
+    /**
+     * Constructor with no args
+     */
     public Menu() {
-        this.taskLibrary1 = new LinkedList<>();
+        this.listOfTasks = new LinkedList<>();
+    }
+
+    /**
+     * Constructor that takes a LinkedList as arg.
+     */
+    public Menu(LinkedList<Task> ll) {
+        this.listOfTasks = ll;
     }
 
     ///////////////////methods
@@ -24,8 +34,8 @@ public class Menu implements Commands, Serializable {
      * Prints out the opening message for the user
      */
     public void sayWelcome() {
-        int taskDone = countDone(taskLibrary1);
-        int taskToDo = taskLibrary1.size() - countDone(taskLibrary1);
+        int taskDone = countDone(listOfTasks);
+        int taskToDo = listOfTasks.size() - countDone(listOfTasks);
 
         System.out.println();
         System.out.println("Welcome to [todolist]                       -                                       2021 - © Clement Cardona\n" +
@@ -111,7 +121,7 @@ public class Menu implements Commands, Serializable {
         System.out.println("    >>> (4) Back to MAIN menu");
         System.out.println("    Pick an option :");
 
-        if (taskLibrary1.size() != 0) {
+        if (listOfTasks.size() != 0) {
 
             Scanner scanner = new Scanner(System.in);
             try {
@@ -142,11 +152,11 @@ public class Menu implements Commands, Serializable {
         }
     }
 
-    // TODO - if possible refactor 3 methods used to sort
+    // TODO - if possible refactor the 3 methods used to sort
     private void sortTasksByDueDate() {
 
-        taskLibrary1.sort(new TaskComparator('p'));
-        for (Task task : taskLibrary1) {
+        listOfTasks.sort(new TaskComparator('d'));
+        for (Task task : listOfTasks) {
             System.out.println("Due date : " + task.getDueDate() + "      "
                     + "             -   Title:  " + task.getTitle()
                     + "   -   Project :  " + task.getProject()
@@ -157,8 +167,8 @@ public class Menu implements Commands, Serializable {
     }
 
     private void sortTasksByProject() {
-        taskLibrary1.sort(new TaskComparator('d'));
-        for (Task task : taskLibrary1) {
+        listOfTasks.sort(new TaskComparator('p'));
+        for (Task task : listOfTasks) {
             System.out.println("Project : " + task.getProject() + "      "
                     + "   -   Title : " + task.getTitle()
                     + "   -   Due date: " + task.getDueDate()
@@ -167,8 +177,8 @@ public class Menu implements Commands, Serializable {
     }
 
     private void sortTasksByStatus() {
-        taskLibrary1.sort(new TaskComparator('s'));
-        for (Task task : taskLibrary1) {
+        listOfTasks.sort(new TaskComparator('s'));
+        for (Task task : listOfTasks) {
             System.out.println("Status : " + task.getStatus() + "      "
                     + "   -   Title : " + task.getTitle()
                     + "   -   Project : " + task.getProject()
@@ -199,7 +209,7 @@ public class Menu implements Commands, Serializable {
         String newDueDate = UserInputChecker.getValidDate(date);
 
 
-        taskLibrary1.add(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
+        listOfTasks.add(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
         System.out.println("The task has been added successfully ");//TODO - Maybe associated with a boolean + a "if true"?
 
     }
@@ -211,15 +221,15 @@ public class Menu implements Commands, Serializable {
     public void editTask() {
         System.out.println("Select the task you want to edit");
 
-        if (taskLibrary1.size() == 0) {
+        if (listOfTasks.size() == 0) {
             System.out.println("\n No task found");
         }
 
         int index = 0;
-        for (index = 0; index < taskLibrary1.size(); index++) {
+        for (index = 0; index < listOfTasks.size(); index++) {
             int choice = index + 1;
-            System.out.println("  (" + choice + ")  " + "Title : " + taskLibrary1.get(index).getTitle()
-                    + " - Status : " + taskLibrary1.get(index).getStatus());
+            System.out.println("  (" + choice + ")  " + "Title : " + listOfTasks.get(index).getTitle()
+                    + " - Status : " + listOfTasks.get(index).getStatus());
 
         }
         System.out.println("  (" + (index + 1) + ")  Back to MAIN menu ");
@@ -232,8 +242,8 @@ public class Menu implements Commands, Serializable {
 
             } else if (indexOfTaskSelected > 0 && indexOfTaskSelected < index + 1) {
 
-                System.out.println("  (" + indexOfTaskSelected + ")  " + "Title : " + taskLibrary1.get(indexOfTaskSelected - 1).getTitle()
-                        + " - Status : " + taskLibrary1.get(indexOfTaskSelected - 1).getStatus());
+                System.out.println("  (" + indexOfTaskSelected + ")  " + "Title : " + listOfTasks.get(indexOfTaskSelected - 1).getTitle()
+                        + " - Status : " + listOfTasks.get(indexOfTaskSelected - 1).getStatus());
                 System.out.println();
                 System.out.println("    >>> (1) Update  ");
                 System.out.println("    >>> (2) Mark as done");
@@ -262,52 +272,52 @@ public class Menu implements Commands, Serializable {
 
     }
 
-    private void markAsDone(int indexOfTask) {
-        taskLibrary1.get(indexOfTask - 1).setStatus(true);
-        System.out.println("task ( " + taskLibrary1.get(indexOfTask - 1).getTitle() + " ) marked as done");
+    public void markAsDone(int indexOfTask) {
+        listOfTasks.get(indexOfTask - 1).setStatus(true);
+        System.out.println("task ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " ) marked as done");
 
     }
 
     /**
-     * update a task by replacing or not (user choice) the fields through todolist.Task class setters
+     * update a task by replacing or not (user choice) the fields through Task class setters
      * TODO : refactor update if possible
      */
     private void update(int indexOfTask) {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Press [Enter] to keep the actual Title ( " + taskLibrary1.get(indexOfTask - 1).getTitle() + " )");
+        System.out.println("Press [Enter] to keep the actual Title ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " )");
         System.out.println("Update Title:");
         String title = sc.nextLine();
 
         if (!title.equals("")) {
             String newTitle = UserInputChecker.getValidString(title, "Title");
-            taskLibrary1.get(indexOfTask - 1).setTitle(newTitle);
+            listOfTasks.get(indexOfTask - 1).setTitle(newTitle);
         }
 
-        System.out.println("Press [Enter] to keep the actual Project ( " + taskLibrary1.get(indexOfTask - 1).getProject() + " )");
+        System.out.println("Press [Enter] to keep the actual Project ( " + listOfTasks.get(indexOfTask - 1).getProject() + " )");
         System.out.println("Update Project:");
         String project = sc.nextLine();
 
         if (!project.equals("")) {
             String newProject = UserInputChecker.getValidString(project, "Project");
-            taskLibrary1.get(indexOfTask - 1).setProject(newProject);
+            listOfTasks.get(indexOfTask - 1).setProject(newProject);
         }
 
-        System.out.println("Press [Enter] to keep the actual due Date ( " + taskLibrary1.get(indexOfTask - 1).getDueDate() + " )");
+        System.out.println("Press [Enter] to keep the actual due Date ( " + listOfTasks.get(indexOfTask - 1).getDueDate() + " )");
         System.out.println("Update Due Date :");
         String date = sc.nextLine();
 
         if (!date.equals("")) {
             String newDueDate = UserInputChecker.getValidDate(date);
-            taskLibrary1.get(indexOfTask - 1).setDueDate(newDueDate);
+            listOfTasks.get(indexOfTask - 1).setDueDate(newDueDate);
         }
 
     }
 
     private void removeTask(int indexOfTask) {
-        System.out.println("task ( " + taskLibrary1.get(indexOfTask - 1).getTitle() + " ) successfully removed");
-        taskLibrary1.remove(indexOfTask - 1);
+        System.out.println("task ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " ) successfully removed");
+        listOfTasks.remove(indexOfTask - 1);
     }
 
     /**
@@ -318,7 +328,7 @@ public class Menu implements Commands, Serializable {
         try {
             FileOutputStream fileOut = new FileOutputStream("./src/main/resources/taskFile.txt");
             ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(taskLibrary1);
+            out.writeObject(listOfTasks);
             out.close();
             fileOut.close();
             System.out.println("... saved as taskFile.txt");
@@ -340,7 +350,7 @@ public class Menu implements Commands, Serializable {
             try {
                 FileInputStream fileIn = new FileInputStream("./src/main/resources/taskFile.txt");
                 ObjectInputStream in = new ObjectInputStream(fileIn);
-                taskLibrary1 = (LinkedList<Task>) in.readObject();
+                listOfTasks = (LinkedList<Task>) in.readObject();
 
                 in.close();
                 fileIn.close();
