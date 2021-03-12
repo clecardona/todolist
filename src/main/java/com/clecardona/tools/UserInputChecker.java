@@ -1,4 +1,4 @@
-package com.clecardona;
+package com.clecardona.tools;
 
 import java.util.Scanner;
 
@@ -13,18 +13,17 @@ public class UserInputChecker {
      * @param typeOfData ( "Title", "Project" ... )
      * @return a non-empty String
      */
-    public static String getValidString(String str, String typeOfData) {
+    public static String getNonEmptyString(String str, String typeOfData) {
 
         while (str.length() == 0) {
             System.out.println("Invalid. Please Enter a " + typeOfData + ":");
             Scanner scanner = new Scanner(System.in);
             str = scanner.nextLine();
-            if (str.length() != 0) {
-                break;
-            }
+
         }
         return str;
     }
+
 
     /**
      * Method that ensure that a corrected formatted date is provided by user. Loops with while until correct input is provided.
@@ -34,19 +33,42 @@ public class UserInputChecker {
      */
     public static String getValidDate(String date) {
 
-        String regex = "^((19|20)\\d\\d)-(0?[1-9]|1[012])-(0?[1-9]|[12][0-9]|3[01])$"; // regex verification
-
-        while (!date.matches(regex)) {
+        while (!isAValidDate(date)) {
             System.out.println("Enter valid date (YYYY-MM-DD) :");
             Scanner scanner = new Scanner(System.in);
             date = scanner.nextLine();
-            if (date.matches(regex)) {
-                break;
-            }
         }
         return date;
     }
 
+    public static boolean isAValidDate(String date) {
 
+        String regex = "^((20)\\d\\d)-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$";
+
+        //date does not match pattern - return false
+        if (!date.matches(regex)) { // does not match pattern -return false
+            return false;
+        }
+
+        boolean dateExists;
+
+        int year = Integer.parseInt(date.substring(0, 4));//2020
+        int month = Integer.parseInt(date.substring(5, 7));//01 -> 1
+        int day = Integer.parseInt(date.substring(8)); // 01-> 1
+
+        if (((month == 4) || (month == 6) || (month == 9) || (month == 11)) && day >= 31) {
+            dateExists = false;
+
+        } else if (month == 2) {
+            dateExists = day < 30 && (day != 29 || year % 4 == 0);
+
+        } else {
+            dateExists = true;
+        }
+
+        return dateExists;
+    }
+
+    // todo validate boolean??
 }
 

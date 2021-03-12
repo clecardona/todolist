@@ -1,11 +1,15 @@
-package com.clecardona;
+package com.clecardona.menu;
+
+import com.clecardona.tasks.Task;
+import com.clecardona.tools.Comparator;
+import com.clecardona.tools.UserInputChecker;
 
 import java.io.*;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Menu implements Commands, Serializable {
+public class Menu implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 0L;
@@ -35,7 +39,7 @@ public class Menu implements Commands, Serializable {
      */
     public void sayWelcome() {
         int taskDone = countDone(listOfTasks);
-        int taskToDo = listOfTasks.size() - countDone(listOfTasks);
+        int taskToDo = listOfTasks.size() - taskDone;
 
         System.out.println();
         System.out.println("Welcome to [todolist]                       -                                       2021 - © Clement Cardona\n" +
@@ -46,10 +50,10 @@ public class Menu implements Commands, Serializable {
     /**
      * Returns the the number of task "done"
      */
-    public int countDone(LinkedList<Task> ll) {
+    public int countDone(LinkedList<Task> listOfTasks) { //todo or return int[] to calculate both at the time
         int count = 0;
-        for (Task task : ll) {
-            if (task.getStatus().equals("done")) {
+        for (Task task : listOfTasks) {
+            if (task.getStatusBoolean()) {
                 count++;
             }
         }
@@ -85,7 +89,7 @@ public class Menu implements Commands, Serializable {
      */
     public boolean processCommand() {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);//todo why not have a validateInt. but this probably is good too
         boolean askedToQuit = false;
 
         try {
@@ -112,7 +116,7 @@ public class Menu implements Commands, Serializable {
     /**
      * Display all tasks , display sorting menu, process sorting by title,project or due date.
      */
-    @Override
+
     public void displayTasks() {
         System.out.println();
         System.out.println("    >>> (1) Sort By Date");
@@ -121,7 +125,7 @@ public class Menu implements Commands, Serializable {
         System.out.println("    >>> (4) Back to MAIN menu");
         System.out.println("    Pick an option :");
 
-        if (listOfTasks.size() != 0) {
+        if (listOfTasks.size() != 0) {  //todo I usually prefer to have short if first an return after them but that is good too.
 
             Scanner scanner = new Scanner(System.in);
             try {
@@ -130,22 +134,22 @@ public class Menu implements Commands, Serializable {
                 switch (userChoice) {
                     case 1 -> {
                         sortTasksByDueDate();
-                        displayTasks();
+                        displayTasks(); //todo I usually don't like the recursion methods if not needed - use return;
                     }
                     case 2 -> {
                         sortTasksByProject();
-                        displayTasks();
+                        displayTasks();// todo avoid recursion- use return
                     }
                     case 3 -> {
                         sortTasksByStatus();
-                        displayTasks();
+                        displayTasks();// todo avoid recursion- use return;
                     }
                     case 4 -> System.out.println();
                     default -> System.out.println("\n Enter valid number");
                 }
             } catch (InputMismatchException i) {
                 System.out.println("\n Enter valid number");
-                displayTasks();
+                displayTasks();// todo avoid recursion
             }
         } else {
             System.out.println("\n No task found");
@@ -155,31 +159,31 @@ public class Menu implements Commands, Serializable {
     // TODO - if possible refactor the 3 methods used to sort
     private void sortTasksByDueDate() {
 
-        listOfTasks.sort(new TaskComparator('d'));
+        listOfTasks.sort(new Comparator('d'));
         for (Task task : listOfTasks) {
             System.out.println("Due date : " + task.getDueDate() + "      "
                     + "             -   Title:  " + task.getTitle()
                     + "   -   Project :  " + task.getProject()
-                    + "   -   Status : " + task.getStatus());
+                    + "   -   Status : " + task.getStatusString());
         }
 
 
     }
 
     private void sortTasksByProject() {
-        listOfTasks.sort(new TaskComparator('p'));
+        listOfTasks.sort(new Comparator('p'));
         for (Task task : listOfTasks) {
             System.out.println("Project : " + task.getProject() + "      "
                     + "   -   Title : " + task.getTitle()
                     + "   -   Due date: " + task.getDueDate()
-                    + "   -   Status : " + task.getStatus());
+                    + "   -   Status : " + task.getStatusString());
         }
     }
 
     private void sortTasksByStatus() {
-        listOfTasks.sort(new TaskComparator('s'));
+        listOfTasks.sort(new Comparator('s'));
         for (Task task : listOfTasks) {
-            System.out.println("Status : " + task.getStatus() + "      "
+            System.out.println("Status : " + task.getStatusString() + "      "
                     + "   -   Title : " + task.getTitle()
                     + "   -   Project : " + task.getProject()
                     + "   -   Due date: " + task.getDueDate());
@@ -192,32 +196,32 @@ public class Menu implements Commands, Serializable {
      * Add a new task to the list
      * boolean isDone is set to false by default when a task is added
      */
-    @Override
+
     public void addNewTask() {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);//todo since you are using this too much, have it as global??
 
         System.out.println("Enter Title:  ");
         String title = scanner.nextLine();
-        String newTitle = UserInputChecker.getValidString(title, "Title");
+        String newTitle = UserInputChecker.getNonEmptyString(title, "Title");
 
         System.out.println("Enter Project related :  ");
         String project = scanner.nextLine();
-        String newProject = UserInputChecker.getValidString(project, "Project");
+        String newProject = UserInputChecker.getNonEmptyString(project, "Project");
 
-        System.out.println("Enter date (YYYY-MM-DD) :");
+        System.out.println("Enter date (YYYY-MM-DD) :");//todo you made your regex accept : 1999-1-1
         String date = scanner.nextLine();
         String newDueDate = UserInputChecker.getValidDate(date);
 
 
-        listOfTasks.add(new Task(newTitle, newProject, newDueDate)); // add the task to the taskFolder arraylist
-        System.out.println("The task has been added successfully ");//TODO - Maybe associated with a boolean + a "if true"?
+        listOfTasks.add(new Task(newTitle, newProject, newDueDate)); // adds the task to the taskFolder arraylist
+        System.out.println("The task has been added successfully ");
 
     }
 
     /**
      * Display all tasks , display edit menu, process action requested ( update(), markAsDone() , remove() )
      */
-    @Override
+
     public void editTask() {
         System.out.println("Select the task you want to edit");
 
@@ -226,24 +230,23 @@ public class Menu implements Commands, Serializable {
         }
 
         int index = 0;
-        for (index = 0; index < listOfTasks.size(); index++) {
-            int choice = index + 1;
-            System.out.println("  (" + choice + ")  " + "Title : " + listOfTasks.get(index).getTitle()
-                    + " - Status : " + listOfTasks.get(index).getStatus());
+        for (index = 0; index < listOfTasks.size(); index++) { //todo  I have a feeling that you can merge this with the display method- sortByTitle to create
+            System.out.println("  (" + (index + 1) + ")  " + "Title : " + listOfTasks.get(index).getTitle() //todo toString
+                    + " - Status : " + listOfTasks.get(index).getStatusString());
 
         }
         System.out.println("  (" + (index + 1) + ")  Back to MAIN menu ");
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);//todo since you are using this too much, have it as global??
         try {
             int indexOfTaskSelected = scanner.nextInt();
 
             if (indexOfTaskSelected == index + 1) {
-
+//do nothing
             } else if (indexOfTaskSelected > 0 && indexOfTaskSelected < index + 1) {
 
-                System.out.println("  (" + indexOfTaskSelected + ")  " + "Title : " + listOfTasks.get(indexOfTaskSelected - 1).getTitle()
-                        + " - Status : " + listOfTasks.get(indexOfTaskSelected - 1).getStatus());
+                System.out.println("  (" + indexOfTaskSelected + ")  " + "Title : " + listOfTasks.get(indexOfTaskSelected - 1).getTitle() //todo toString again
+                        + " - Status : " + listOfTasks.get(indexOfTaskSelected - 1).getStatusString());
                 System.out.println();
                 System.out.println("    >>> (1) Update  ");
                 System.out.println("    >>> (2) Mark as done");
@@ -254,16 +257,16 @@ public class Menu implements Commands, Serializable {
 
                 int actionSelected = scanner.nextInt();
                 switch (actionSelected) {
-                    case 1 -> update(indexOfTaskSelected);
+                    case 1 -> update(indexOfTaskSelected - 1);
                     case 2 -> markAsDone(indexOfTaskSelected);
                     case 3 -> removeTask(indexOfTaskSelected);
-                    case 4 -> editTask();
+                    case 4 -> editTask();  // todo avoid recursion
                     case 5 -> System.out.println();
                     default -> System.out.println(" Enter valid number\n");
                 }
             } else {
                 System.out.println(" Enter valid number\n");
-                editTask();
+                editTask();// todo avoid recursion
             }
         } catch (InputMismatchException i) {
             System.out.println(" Enter valid number\n");
@@ -272,15 +275,14 @@ public class Menu implements Commands, Serializable {
 
     }
 
-    public void markAsDone(int indexOfTask) {
-        listOfTasks.get(indexOfTask - 1).setStatus(true);
-        System.out.println("task ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " ) marked as done");
+    public void markAsDone(int index) {
+        listOfTasks.get(index).setStatus(true);
+        System.out.println("task ( " + listOfTasks.get(index).getTitle() + " ) marked as done");
 
     }
 
     /**
      * update a task by replacing or not (user choice) the fields through Task class setters
-     * TODO : refactor update if possible
      */
     private void update(int indexOfTask) {
 
@@ -288,28 +290,26 @@ public class Menu implements Commands, Serializable {
 
         System.out.println("Press [Enter] to keep the actual Title ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " )");
         System.out.println("Update Title:");
-        String title = sc.nextLine();
+        String updatedTitle = sc.nextLine();
 
-        if (!title.equals("")) {
-            String newTitle = UserInputChecker.getValidString(title, "Title");
-            listOfTasks.get(indexOfTask - 1).setTitle(newTitle);
+        if (!updatedTitle.equals("")) {
+            listOfTasks.get(indexOfTask - 1).setTitle(updatedTitle);
         }
 
         System.out.println("Press [Enter] to keep the actual Project ( " + listOfTasks.get(indexOfTask - 1).getProject() + " )");
         System.out.println("Update Project:");
-        String project = sc.nextLine();
+        String updatedProject = sc.nextLine();
 
-        if (!project.equals("")) {
-            String newProject = UserInputChecker.getValidString(project, "Project");
-            listOfTasks.get(indexOfTask - 1).setProject(newProject);
+        if (!updatedProject.equals("")) {
+            listOfTasks.get(indexOfTask - 1).setProject(updatedProject);
         }
 
         System.out.println("Press [Enter] to keep the actual due Date ( " + listOfTasks.get(indexOfTask - 1).getDueDate() + " )");
         System.out.println("Update Due Date :");
-        String date = sc.nextLine();
+        String updatedDueDate = sc.nextLine();
 
-        if (!date.equals("")) {
-            String newDueDate = UserInputChecker.getValidDate(date);
+        if (!updatedDueDate.equals("")) {
+            String newDueDate = UserInputChecker.getValidDate(updatedDueDate);
             listOfTasks.get(indexOfTask - 1).setDueDate(newDueDate);
         }
 
@@ -323,7 +323,7 @@ public class Menu implements Commands, Serializable {
     /**
      * save to file taskFile.txt using serialization
      */
-    @Override
+
     public void saveToFile() {
         try {
             FileOutputStream fileOut = new FileOutputStream("./src/main/resources/taskFile.txt");
@@ -342,7 +342,7 @@ public class Menu implements Commands, Serializable {
     /**
      * load from file taskFile.txt using serialization
      */
-    @Override
+
     public void loadFromFile() {
 
         File path1 = new File("./src/main/resources/taskFile.txt");
@@ -370,7 +370,7 @@ public class Menu implements Commands, Serializable {
     /**
      * exits the program
      */
-    @Override
+
     public void quit() {
         System.exit(0);
     }

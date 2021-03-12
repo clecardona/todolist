@@ -1,10 +1,11 @@
 package com.clecardona;
 
+import com.clecardona.menu.Menu;
+
 public class Main {
 
     /**
      * This class is the main class of the "Todolist" application.
-     * *
      *
      * @author Clement Cardona
      * @version 2016.02.29
