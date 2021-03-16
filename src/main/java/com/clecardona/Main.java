@@ -37,11 +37,17 @@ public class Main {
         while (!askedToQuit) {
 
             menu.displayMenu();
-            askedToQuit = menu.processCommand(); // perform action requested  + return false only if "Save and Quit" is selected
+            askedToQuit = menu.processCommand();// perform action requested  + return false only if "Save and Quit" is selected
+            clearScreen();
 
         }
         menu.sayGoodbye();
         menu.quit();
+    }
+
+    public static void clearScreen() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
     }
 
 }

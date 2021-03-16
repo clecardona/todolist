@@ -58,7 +58,7 @@ public class Task extends Menu implements Serializable {
 
     }
 
-    public boolean getStatusBoolean() {//todo return a boolean or manage it differently
+    public boolean getStatusBoolean() {
         return isDone;
 
     }
@@ -68,13 +68,10 @@ public class Task extends Menu implements Serializable {
     }
 
 
-    // todo toString implementation
+
     @Override
     public String toString() {
-        return "Due date : " + getDueDate() + "      "
-                + "             -   Title:  " + getTitle()
-                + "   -   Project :  " + getProject()
-                + "   -   Status : " + getStatusString();
+        return getTitle() + " - " + getProject() + " - " + getDueDate() + " - " + getStatusString();
     }
 
 }

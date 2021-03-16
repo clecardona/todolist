@@ -97,9 +97,9 @@ public class Menu implements Serializable {
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
-                case 1 -> displayTasks();
+                case 1 -> displayTasks(0);
                 case 2 -> addNewTask();
-                case 3 -> editTask();
+                case 3 -> editTask(0);
                 case 4 -> {
                     saveToFile();
                     askedToQuit = true;
@@ -113,84 +113,85 @@ public class Menu implements Serializable {
 
     }
 
+
     /**
-     * Display all tasks , display sorting menu, process sorting by title,project or due date.
+     * Display all tasks  display sorting menu, process sorting by title,project or due date.
+     *
+     * @param depth : limit of number of recursions allowed.  (recursive method)
      */
-
-    public void displayTasks() {
+    public void displayTasks(int depth) {
         System.out.println();
-        System.out.println("    >>> (1) Sort By Date");
-        System.out.println("    >>> (2) Sort By Project");
-        System.out.println("    >>> (3) Sort By Status");
-        System.out.println("    >>> (4) Back to MAIN menu");
-        System.out.println("    Pick an option :");
+        System.out.println("""
+                    >>> (1) Sort By Due Date (earlier first)
+                    >>> (2) Sort By Project (A-Z)
+                    >>> (3) Sort By Status (A-Z)
+                    >>> (4) Back to MAIN menu
+                    Pick an option :
+                """);
 
-        if (listOfTasks.size() != 0) {  //todo I usually prefer to have short if first an return after them but that is good too.
+        if (listOfTasks.size() == 0) {
+            System.out.println("\n No task found");
+        }
 
-            Scanner scanner = new Scanner(System.in);
-            try {
-                int userChoice = scanner.nextInt();
+        if (depth >= 10) { //recursion call will be allowed max 10 times
+            return;
+        }
 
-                switch (userChoice) {
-                    case 1 -> {
-                        sortTasksByDueDate();
-                        displayTasks(); //todo I usually don't like the recursion methods if not needed - use return;
-                    }
+        Scanner scanner = new Scanner(System.in);
+        try {
+            int userChoice = scanner.nextInt();
+
+            switch (userChoice) {
+                case 1 -> {
+                    sortTasksByDueDate();
+                    depth++;
+                    displayTasks(depth);
+                }
                     case 2 -> {
                         sortTasksByProject();
-                        displayTasks();// todo avoid recursion- use return
+                        depth++;
+                        displayTasks(depth);
                     }
                     case 3 -> {
                         sortTasksByStatus();
-                        displayTasks();// todo avoid recursion- use return;
+                        depth++;
+                        displayTasks(depth);
                     }
                     case 4 -> System.out.println();
                     default -> System.out.println("\n Enter valid number");
                 }
             } catch (InputMismatchException i) {
-                System.out.println("\n Enter valid number");
-                displayTasks();// todo avoid recursion
-            }
-        } else {
-            System.out.println("\n No task found");
+            System.out.println("\n Enter valid number");
+            depth++;
+            displayTasks(depth);
         }
-    }
+        }
+
 
     // TODO - if possible refactor the 3 methods used to sort
     private void sortTasksByDueDate() {
 
         listOfTasks.sort(new Comparator('d'));
         for (Task task : listOfTasks) {
-            System.out.println("Due date : " + task.getDueDate() + "      "
-                    + "             -   Title:  " + task.getTitle()
-                    + "   -   Project :  " + task.getProject()
-                    + "   -   Status : " + task.getStatusString());
+            System.out.println(task.getDueDate() + "      " + task.toString());
         }
-
 
     }
 
     private void sortTasksByProject() {
         listOfTasks.sort(new Comparator('p'));
         for (Task task : listOfTasks) {
-            System.out.println("Project : " + task.getProject() + "      "
-                    + "   -   Title : " + task.getTitle()
-                    + "   -   Due date: " + task.getDueDate()
-                    + "   -   Status : " + task.getStatusString());
+            System.out.println(task.getProject() + "      " + task.toString());
         }
     }
 
     private void sortTasksByStatus() {
         listOfTasks.sort(new Comparator('s'));
         for (Task task : listOfTasks) {
-            System.out.println("Status : " + task.getStatusString() + "      "
-                    + "   -   Title : " + task.getTitle()
-                    + "   -   Project : " + task.getProject()
-                    + "   -   Due date: " + task.getDueDate());
+            System.out.println(task.getStatusString() + "      " + task.toString());
 
         }
     }
-
 
     /**
      * Add a new task to the list
@@ -208,7 +209,7 @@ public class Menu implements Serializable {
         String project = scanner.nextLine();
         String newProject = UserInputChecker.getNonEmptyString(project, "Project");
 
-        System.out.println("Enter date (YYYY-MM-DD) :");//todo you made your regex accept : 1999-1-1
+        System.out.println("Enter date (YYYY-MM-DD) :");
         String date = scanner.nextLine();
         String newDueDate = UserInputChecker.getValidDate(date);
 
@@ -220,57 +221,70 @@ public class Menu implements Serializable {
 
     /**
      * Display all tasks , display edit menu, process action requested ( update(), markAsDone() , remove() )
+     *
+     * @param depth : limit of number of recursions allowed.  (recursive method)
      */
-
-    public void editTask() {
+    public void editTask(int depth) {
         System.out.println("Select the task you want to edit");
 
         if (listOfTasks.size() == 0) {
             System.out.println("\n No task found");
         }
 
-        int index = 0;
-        for (index = 0; index < listOfTasks.size(); index++) { //todo  I have a feeling that you can merge this with the display method- sortByTitle to create
-            System.out.println("  (" + (index + 1) + ")  " + "Title : " + listOfTasks.get(index).getTitle() //todo toString
-                    + " - Status : " + listOfTasks.get(index).getStatusString());
+        if (depth >= 10) { //recursion call will be allowed max 10 times
+            return;
+        }
 
+        int index;
+        for (index = 0; index < listOfTasks.size(); index++) {
+
+            System.out.print("  (" + (index + 1) + ")  ");
+            System.out.println(listOfTasks.get(index).toString());
         }
         System.out.println("  (" + (index + 1) + ")  Back to MAIN menu ");
 
-        Scanner scanner = new Scanner(System.in);//todo since you are using this too much, have it as global??
+        Scanner scanner = new Scanner(System.in);
         try {
-            int indexOfTaskSelected = scanner.nextInt();
+            int indexSelected = scanner.nextInt() - 1;
 
-            if (indexOfTaskSelected == index + 1) {
-//do nothing
-            } else if (indexOfTaskSelected > 0 && indexOfTaskSelected < index + 1) {
+            if (indexSelected == index) {
+                //do nothing
+            } else if (indexSelected >= 0 && indexSelected < index + 1) {
 
-                System.out.println("  (" + indexOfTaskSelected + ")  " + "Title : " + listOfTasks.get(indexOfTaskSelected - 1).getTitle() //todo toString again
-                        + " - Status : " + listOfTasks.get(indexOfTaskSelected - 1).getStatusString());
+                System.out.print("Task to edit > (" + (indexSelected + 1) + ")  ");
+                System.out.println(listOfTasks.get(indexSelected).toString());
+
                 System.out.println();
-                System.out.println("    >>> (1) Update  ");
-                System.out.println("    >>> (2) Mark as done");
-                System.out.println("    >>> (3) Remove");
-                System.out.println("    >>> (4) Back to EDIT menu");
-                System.out.println("    >>> (5) Back to MAIN menu");
+                System.out.println("""
+                        >>> (1) Update (rename Title/ rename Project / change Due Date) 
+                        >>> (2) Mark as done
+                        >>> (3) Remove
+                        >>> (4) Back to EDIT menu
+                        >>> (5) Back to MAIN menu
+                        """);
 
 
                 int actionSelected = scanner.nextInt();
                 switch (actionSelected) {
-                    case 1 -> update(indexOfTaskSelected - 1);
-                    case 2 -> markAsDone(indexOfTaskSelected);
-                    case 3 -> removeTask(indexOfTaskSelected);
-                    case 4 -> editTask();  // todo avoid recursion
+                    case 1 -> update(indexSelected);
+                    case 2 -> markAsDone(indexSelected);
+                    case 3 -> removeTask(indexSelected);
+                    case 4 -> {
+                        depth++;
+                        editTask(depth);
+                    }
                     case 5 -> System.out.println();
                     default -> System.out.println(" Enter valid number\n");
                 }
             } else {
                 System.out.println(" Enter valid number\n");
-                editTask();// todo avoid recursion
+                depth++;
+                editTask(depth);
             }
         } catch (InputMismatchException i) {
             System.out.println(" Enter valid number\n");
-            editTask();
+            depth++;
+            editTask(depth);
         }
 
     }
@@ -284,40 +298,40 @@ public class Menu implements Serializable {
     /**
      * update a task by replacing or not (user choice) the fields through Task class setters
      */
-    private void update(int indexOfTask) {
+    private void update(int index) {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Press [Enter] to keep the actual Title ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " )");
+        System.out.println("Press [Enter] to keep the actual value [ " + listOfTasks.get(index).getTitle() + " ]");
         System.out.println("Update Title:");
         String updatedTitle = sc.nextLine();
 
         if (!updatedTitle.equals("")) {
-            listOfTasks.get(indexOfTask - 1).setTitle(updatedTitle);
+            listOfTasks.get(index).setTitle(updatedTitle);
         }
 
-        System.out.println("Press [Enter] to keep the actual Project ( " + listOfTasks.get(indexOfTask - 1).getProject() + " )");
+        System.out.println("Press [Enter] to keep the actual value [ " + listOfTasks.get(index).getProject() + " ]");
         System.out.println("Update Project:");
         String updatedProject = sc.nextLine();
 
         if (!updatedProject.equals("")) {
-            listOfTasks.get(indexOfTask - 1).setProject(updatedProject);
+            listOfTasks.get(index).setProject(updatedProject);
         }
 
-        System.out.println("Press [Enter] to keep the actual due Date ( " + listOfTasks.get(indexOfTask - 1).getDueDate() + " )");
+        System.out.println("Press [Enter] to keep the actual due Date [ " + listOfTasks.get(index).getDueDate() + " ]");
         System.out.println("Update Due Date :");
         String updatedDueDate = sc.nextLine();
 
         if (!updatedDueDate.equals("")) {
             String newDueDate = UserInputChecker.getValidDate(updatedDueDate);
-            listOfTasks.get(indexOfTask - 1).setDueDate(newDueDate);
+            listOfTasks.get(index).setDueDate(newDueDate);
         }
 
     }
 
-    private void removeTask(int indexOfTask) {
-        System.out.println("task ( " + listOfTasks.get(indexOfTask - 1).getTitle() + " ) successfully removed");
-        listOfTasks.remove(indexOfTask - 1);
+    private void removeTask(int index) {
+        System.out.println("task ( " + listOfTasks.get(index).getTitle() + " ) successfully removed");
+        listOfTasks.remove(index);
     }
 
     /**
