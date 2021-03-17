@@ -27,10 +27,10 @@ public class Comparator implements java.util.Comparator<Task> {
     public int compare(Task a, Task b) {
         int result = 0;
         switch (COMPARE_MODE) {
-            case 'd' -> {
+            case 'p' -> {
                 result = a.getProject().compareTo(b.getProject());
             }
-            case 'p' -> {
+            case 'd' -> {
                 result = a.getDueDate().compareTo(b.getDueDate());
             }
             case 's' -> {

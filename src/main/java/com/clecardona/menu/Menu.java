@@ -16,20 +16,24 @@ public class Menu implements Serializable {
 
  ///////////////////fields
     private LinkedList<Task> listOfTasks;
-
+    private final Scanner scanner;
 
     /**
      * Constructor with no args
      */
     public Menu() {
+
         this.listOfTasks = new LinkedList<>();
+        this.scanner = new Scanner(System.in);
     }
 
     /**
      * Constructor that takes a LinkedList as arg.
      */
-    public Menu(LinkedList<Task> ll) {
-        this.listOfTasks = ll;
+    public Menu(LinkedList<Task> list) {
+
+        this.listOfTasks = list;
+        this.scanner = new Scanner(System.in);
     }
 
     ///////////////////methods
@@ -95,12 +99,12 @@ public class Menu implements Serializable {
      */
     public boolean processCommand() {
 
-        Scanner scanner = new Scanner(System.in);//todo why not have a validateInt. but this probably is good too
         boolean askedToQuit = false;
+
 
         try {
 
-            int userChoice = Integer.parseInt(scanner.nextLine());
+            int userChoice = scanner.nextInt();
 
             switch (userChoice) {
                 case 1 -> printDisplayTaskMenu(0);
@@ -145,7 +149,6 @@ public class Menu implements Serializable {
             return;
         }
 
-        Scanner scanner = new Scanner(System.in);
         try {
             int userChoice = scanner.nextInt();
 
@@ -206,6 +209,7 @@ public class Menu implements Serializable {
     public void sortedListToString(LinkedList<Task> list, char mode) {
         System.out.println();
         String space =" ";// used to format the displayed result
+        int i=1;
 
         for (Task task : list) {
 
@@ -213,15 +217,18 @@ public class Menu implements Serializable {
                 case 'p' -> {
 
                     String align = space.repeat(40-task.getProject().length());//formatting
-                    System.out.println("Project: "+task.getProject() + align + task.toString());
+                    System.out.println(i+". Project: "+task.getProject() + align + task.toString());
+                    i++;
                 }
                 case 'd' -> {
                     String align = space.repeat(40-task.getDueDate().length());//formatting
-                    System.out.println("Due date: "+task.getDueDate() + align + task.toString());
+                    System.out.println(i+". Due date: "+task.getDueDate() + align + task.toString());
+                    i++;
                 }
                 case 's' -> {
                     String align = space.repeat(40-task.getStatusString().length());//formatting
-                    System.out.println("Status: "+task.getStatusString() + align + task.toString());
+                    System.out.println(i+". Status: "+task.getStatusString() + align + task.toString());
+                    i++;
                 }
             }
 
@@ -239,7 +246,6 @@ public class Menu implements Serializable {
     public String[] addNewTaskGatherer() {
 
         String[] newData = new String[3];
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter Title :  ");
         String title = scanner.nextLine();
@@ -291,7 +297,6 @@ public class Menu implements Serializable {
         }
         System.out.println(" < (" + (index + 1) + ")  Back to MAIN menu ");
 
-        Scanner scanner = new Scanner(System.in);
         try {
             int indexSelected = scanner.nextInt() - 1;
 
@@ -382,16 +387,14 @@ public class Menu implements Serializable {
 
         String[] newData = new String[3];
 
-        Scanner sc = new Scanner(System.in);
-
         updatePrintDisplaySentence(index,'t');
-        newData[0] = sc.nextLine();
+        newData[0] = scanner.nextLine();
 
         updatePrintDisplaySentence(index,'p');
-        newData[1] = sc.nextLine();
+        newData[1] = scanner.nextLine();
 
         updatePrintDisplaySentence(index,'d');
-        newData[2] = sc.nextLine();
+        newData[2] = scanner.nextLine();
 
 
     return newData;
@@ -427,12 +430,11 @@ public class Menu implements Serializable {
         listOfTasks.remove(index);
     }
 
+
+///save and load ( serialization )
     /**
-     * save to file taskFile.txt using serialization
+     * save to file taskFile.txt (path:./src/main/resources/taskFile.txt ) using serialization
      */
-
-
-///save and load ( Filereader )
     public void saveToFile() {
         try {
             FileOutputStream fileOut = new FileOutputStream("./src/main/resources/taskFile.txt");
@@ -444,14 +446,11 @@ public class Menu implements Serializable {
         } catch (IOException i) {
             i.printStackTrace();
         }
-
-
     }
 
     /**
-     * load from file taskFile.txt using serialization
+     * load from file taskFile.txt (path:./src/main/resources/taskFile.txt ) using serialization
      */
-
     public void loadFromFile() {
 
         File path1 = new File("./src/main/resources/taskFile.txt");
@@ -482,6 +481,7 @@ public class Menu implements Serializable {
      * exits the program
      */
     public void quit() {
+        scanner.close();
         System.exit(0);
     }
 
