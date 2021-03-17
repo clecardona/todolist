@@ -1,15 +1,17 @@
 package com.clecardona.tools;
 
-import com.clecardona.menu.Menu;
-import com.clecardona.tasks.Task;
-import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserInputCheckerTest {
+
+    @BeforeAll
+    static void init() {
+        System.out.println("Class UserInputChecker tests .. ");
+
+    }
 
     @Test
     void getNonEmptyString() { //todo create test
@@ -42,5 +44,25 @@ class UserInputCheckerTest {
         assertFalse(UserInputChecker.isAValidDate(date2));
         assertFalse(UserInputChecker.isAValidDate(date3));
         assertFalse(UserInputChecker.isAValidDate(date4));
+    }
+
+    @Test
+    void testIsValidStringWithANonEmptyString() {
+        String str = "edwdd ";
+        boolean result = UserInputChecker.isAValidString(str);
+
+        assertTrue(result);
+    }
+
+    @Test
+    void testIsValidStringWithAnEmptyString() {
+        String str = "";
+        assertFalse(UserInputChecker.isAValidString(str));
+    }
+
+    @Test
+    void testIsValidStringWithAWayTooLongString() {
+        String str = "chefjkjdlsfgöäk ökkglfkhg'öjm jkjklö klkljkljkjkbg hhjedfrdsfdfygaioieråewirk ";
+        assertFalse(UserInputChecker.isAValidString(str));
     }
 }

@@ -13,17 +13,20 @@ public class UserInputChecker {
      * @param typeOfData ( "Title", "Project" ... )
      * @return a non-empty String
      */
-    public static String getNonEmptyString(String str, String typeOfData) {
+    public static String getValidString(String str, String typeOfData) {
 
-        while (str.length() == 0) {
-            System.out.println("Invalid. Please Enter a " + typeOfData + ":");
+        while (!isAValidString(str)) {
+            System.out.println("Invalid. Please Enter a " + typeOfData + "( < 40 characters) : ");
             Scanner scanner = new Scanner(System.in);
             str = scanner.nextLine();
 
         }
-        return str;
+        return str.trim();
     }
 
+    public static boolean isAValidString(String str){
+        return str.length() != 0 && str.length() <= 40;
+    }
 
     /**
      * Method that ensure that a corrected formatted date is provided by user. Loops with while until correct input is provided.
@@ -45,16 +48,16 @@ public class UserInputChecker {
 
         String regex = "^((20)\\d\\d)-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$";
 
-        //date does not match pattern - return false
-        if (!date.matches(regex)) { // does not match pattern -return false
+
+        if (!date.matches(regex) || date.length() != 10) { // does not match pattern -> return false
             return false;
         }
 
         boolean dateExists;
 
-        int year = Integer.parseInt(date.substring(0, 4));//2020
-        int month = Integer.parseInt(date.substring(5, 7));//01 -> 1
-        int day = Integer.parseInt(date.substring(8)); // 01-> 1
+        int year = Integer.parseInt(date.substring(0, 4));
+        int month = Integer.parseInt(date.substring(5, 7));
+        int day = Integer.parseInt(date.substring(8));
 
         if (((month == 4) || (month == 6) || (month == 9) || (month == 11)) && day >= 31) {
             dateExists = false;
@@ -69,6 +72,6 @@ public class UserInputChecker {
         return dateExists;
     }
 
-    // todo validate boolean??
+
 }
 

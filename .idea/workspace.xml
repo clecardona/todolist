@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/tasks/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/tasks/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/tools/UserInputChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/tools/UserInputChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/taskFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/clecardona/menu/MenuTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/clecardona/menu/MenuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/clecardona/tools/UserInputCheckerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/clecardona/tools/UserInputCheckerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/taskFile.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,27 +65,14 @@
       <recent name="com.clecardona.menu" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.clecardona.menu" />
       <recent name="com.clecardona.tools" />
+      <recent name="com.clecardona.menu" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.clecardona.Main" />
-      <module name="todolist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.clecardona.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserInputCheckerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.clecardona.Main" />
       <module name="todolist" />
@@ -112,23 +99,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserInputCheckerTest.testIsAValidDateWithCorrectDatesEntered" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.clecardona.tools.*" />
+          <option name="PATTERN" value="com.clecardona.menu.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.clecardona.tools" />
-      <option name="MAIN_CLASS_NAME" value="com.clecardona.tools.UserInputCheckerTest" />
-      <option name="METHOD_NAME" value="testIsAValidDateWithCorrectDatesEntered" />
+      <option name="PACKAGE_NAME" value="com.clecardona.menu" />
+      <option name="MAIN_CLASS_NAME" value="com.clecardona.menu.MenuTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuTest.testRemoveATAsk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.clecardona.menu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.clecardona.menu" />
+      <option name="MAIN_CLASS_NAME" value="com.clecardona.menu.MenuTest" />
+      <option name="METHOD_NAME" value="testRemoveATAsk" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserInputCheckerTest.testIsAValidDateWithCorrectFormatDateEntered" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserInputCheckerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
         <pattern>
@@ -138,13 +140,28 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.clecardona.tools" />
       <option name="MAIN_CLASS_NAME" value="com.clecardona.tools.UserInputCheckerTest" />
-      <option name="METHOD_NAME" value="testIsAValidDateWithCorrectFormatDateEntered" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserInputCheckerTest.testIsValidStringWithANonEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.clecardona.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.clecardona.tools" />
+      <option name="MAIN_CLASS_NAME" value="com.clecardona.tools.UserInputCheckerTest" />
+      <option name="METHOD_NAME" value="testIsValidStringWithANonEmptyString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserInputCheckerTest.testIsAValidDateWithDateWithoutZeros" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserInputCheckerTest.testIsValidStringWithAnEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
         <pattern>
@@ -154,23 +171,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.clecardona.tools" />
       <option name="MAIN_CLASS_NAME" value="com.clecardona.tools.UserInputCheckerTest" />
-      <option name="METHOD_NAME" value="testIsAValidDateWithDateWithoutZeros" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UserInputCheckerTest.testIsAValidDateWithSomeDatesThatDoesNotExists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="todolist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.clecardona.tools.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.clecardona.tools" />
-      <option name="MAIN_CLASS_NAME" value="com.clecardona.tools.UserInputCheckerTest" />
-      <option name="METHOD_NAME" value="testIsAValidDateWithSomeDatesThatDoesNotExists" />
+      <option name="METHOD_NAME" value="testIsValidStringWithAnEmptyString" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.UserInputCheckerTest.testIsAValidDateWithSomeDatesThatDoesNotExists" />
-        <item itemvalue="JUnit.UserInputCheckerTest.testIsAValidDateWithCorrectDatesEntered" />
-        <item itemvalue="JUnit.UserInputCheckerTest.testIsAValidDateWithDateWithoutZeros" />
-        <item itemvalue="JUnit.UserInputCheckerTest.testIsAValidDateWithCorrectFormatDateEntered" />
+        <item itemvalue="JUnit.UserInputCheckerTest" />
+        <item itemvalue="JUnit.MenuTest" />
+        <item itemvalue="JUnit.MenuTest.testRemoveATAsk" />
+        <item itemvalue="JUnit.UserInputCheckerTest.testIsValidStringWithAnEmptyString" />
+        <item itemvalue="JUnit.UserInputCheckerTest.testIsValidStringWithANonEmptyString" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +216,7 @@
       <workItem from="1615471330015" duration="1600000" />
       <workItem from="1615475531258" duration="1901000" />
       <workItem from="1615537781266" duration="1764000" />
-      <workItem from="1615541269937" duration="20185000" />
+      <workItem from="1615541269937" duration="37624000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>
@@ -322,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615552160645</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="- interface Commands deleted&#10;- project structured in packages &#10;- Comparator renamed &#10;- UserInputChecker improved">
+      <created>1615899237899</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1615899237899</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,6 +367,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="- interface Commands deleted&#10;- project structured in packages &#10;- Comparator renamed &#10;- UserInputChecker improved" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/com/clecardona/tools/UserInputChecker.java</url>
+          <line>46</line>
+          <properties class="com.clecardona.tools.UserInputChecker" method="isAValidDate">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

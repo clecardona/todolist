@@ -14,7 +14,7 @@ public class Menu implements Serializable {
     @Serial
     private static final long serialVersionUID = 0L;
 
-    ///////////////////fields
+ ///////////////////fields
     private LinkedList<Task> listOfTasks;
 
 
@@ -34,6 +34,9 @@ public class Menu implements Serializable {
 
     ///////////////////methods
 
+////MAIN MENU
+
+////displays
     /**
      * Prints out the opening message for the user
      */
@@ -45,19 +48,6 @@ public class Menu implements Serializable {
         System.out.println("Welcome to [todolist]                       -                                       2021 - © Clement Cardona\n" +
                 "You have (" + taskToDo + ") tasks todo and (" + taskDone + ") tasks are done !");
 
-    }
-
-    /**
-     * Returns the the number of task "done"
-     */
-    public int countDone(LinkedList<Task> listOfTasks) { //todo or return int[] to calculate both at the time
-        int count = 0;
-        for (Task task : listOfTasks) {
-            if (task.getStatusBoolean()) {
-                count++;
-            }
-        }
-        return count;
     }
 
     /**
@@ -76,13 +66,29 @@ public class Menu implements Serializable {
         System.out.println(
                 """
                         Main Menu :
-                        >>> (1) Show and sort tasks list\s
-                        >>> (2) Add new Task
-                        >>> (3) Edit Task (update, mark as done, remove)
-                        >>> (4) Save and Quit""");
+                         > (1) Show and sort tasks list\s
+                         > (2) Add new Task
+                         > (3) Edit Task (update, mark as done, remove)
+                         < (4) Save and Quit""");
         System.out.println("Pick an option: ");
 
     }
+
+
+////others
+    /**
+     * Returns the the number of task "done"
+     */
+    public int countDone(LinkedList<Task> listOfTasks) {
+        int count = 0;
+        for (Task task : listOfTasks) {
+            if (task.getStatusBoolean()) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 
     /**
      * Process a command from main menu by scanning user's input
@@ -94,11 +100,14 @@ public class Menu implements Serializable {
 
         try {
 
-            int userChoice = scanner.nextInt();
+            int userChoice = Integer.parseInt(scanner.nextLine());
 
             switch (userChoice) {
-                case 1 -> displayTasks(0);
-                case 2 -> addNewTask();
+                case 1 -> printDisplayTaskMenu(0);
+                case 2 -> {
+                    addNewTask(addNewTaskGatherer());
+                    System.out.println("The task has been added successfully ");
+                }
                 case 3 -> editTask(0);
                 case 4 -> {
                     saveToFile();
@@ -113,20 +122,19 @@ public class Menu implements Serializable {
 
     }
 
-
+////SORTING MENU
     /**
      * Display all tasks  display sorting menu, process sorting by title,project or due date.
      *
      * @param depth : limit of number of recursions allowed.  (recursive method)
      */
-    public void displayTasks(int depth) {
-        System.out.println();
-        System.out.println("""
-                    >>> (1) Sort By Due Date (earlier first)
-                    >>> (2) Sort By Project (A-Z)
-                    >>> (3) Sort By Status (A-Z)
-                    >>> (4) Back to MAIN menu
-                    Pick an option :
+    public void printDisplayTaskMenu(int depth) {
+                System.out.println("""
+                   > (1) Sort By Due Date (earlier first)
+                   > (2) Sort By Project (A-Z)
+                   > (3) Sort By Status (done - todo)
+                   < (4) Back to MAIN menu
+                    Pick an option :                    
                 """);
 
         if (listOfTasks.size() == 0) {
@@ -143,85 +151,125 @@ public class Menu implements Serializable {
 
             switch (userChoice) {
                 case 1 -> {
-                    sortTasksByDueDate();
+                    sortedListToString(sortBy('d'),'d');
                     depth++;
-                    displayTasks(depth);
+                    printDisplayTaskMenu(depth);
                 }
-                    case 2 -> {
-                        sortTasksByProject();
-                        depth++;
-                        displayTasks(depth);
-                    }
-                    case 3 -> {
-                        sortTasksByStatus();
-                        depth++;
-                        displayTasks(depth);
-                    }
+                case 2 -> {
+                    sortedListToString(sortBy('p'),'p');
+                    depth++;
+                    printDisplayTaskMenu(depth);
+                }
+                case 3 -> {
+                    sortedListToString(sortBy('s'),'s');
+                    depth++;
+                    printDisplayTaskMenu(depth);
+                }
                     case 4 -> System.out.println();
                     default -> System.out.println("\n Enter valid number");
                 }
-            } catch (InputMismatchException i) {
+        } catch (InputMismatchException i) {
             System.out.println("\n Enter valid number");
             depth++;
-            displayTasks(depth);
-        }
-        }
-
-
-    // TODO - if possible refactor the 3 methods used to sort
-    private void sortTasksByDueDate() {
-
-        listOfTasks.sort(new Comparator('d'));
-        for (Task task : listOfTasks) {
-            System.out.println(task.getDueDate() + "      " + task.toString());
-        }
-
-    }
-
-    private void sortTasksByProject() {
-        listOfTasks.sort(new Comparator('p'));
-        for (Task task : listOfTasks) {
-            System.out.println(task.getProject() + "      " + task.toString());
-        }
-    }
-
-    private void sortTasksByStatus() {
-        listOfTasks.sort(new Comparator('s'));
-        for (Task task : listOfTasks) {
-            System.out.println(task.getStatusString() + "      " + task.toString());
-
+            printDisplayTaskMenu(depth);
         }
     }
 
     /**
-     * Add a new task to the list
-     * boolean isDone is set to false by default when a task is added
+     * Sort the task by selected mode
+     * @param mode: the mode selected ('d':due date , 'p':project , 's':status )
      */
+    public LinkedList<Task> sortBy(char mode) {
+        LinkedList<Task> sortedListOfTasks = listOfTasks;
+        switch (mode) {
 
-    public void addNewTask() {
-        Scanner scanner = new Scanner(System.in);//todo since you are using this too much, have it as global??
+            case 'p' -> {
+                sortedListOfTasks.sort(new Comparator('p'));
+            }
+            case 'd' -> {
 
-        System.out.println("Enter Title:  ");
+                sortedListOfTasks.sort(new Comparator('d'));
+            }
+            case 's' -> {
+
+                sortedListOfTasks.sort(new Comparator('s'));
+            }
+        }
+        return sortedListOfTasks;
+    }
+
+    /**
+     * Prints the correct data corresponding to the sorted mode selected
+     * @param list: the sorted list to print
+     * @param mode: the mode selected ('d':due date , 'p':project , 's':status )
+     */
+    public void sortedListToString(LinkedList<Task> list, char mode) {
+        System.out.println();
+        String space =" ";// used to format the displayed result
+
+        for (Task task : list) {
+
+            switch (mode) {
+                case 'p' -> {
+
+                    String align = space.repeat(40-task.getProject().length());//formatting
+                    System.out.println("Project: "+task.getProject() + align + task.toString());
+                }
+                case 'd' -> {
+                    String align = space.repeat(40-task.getDueDate().length());//formatting
+                    System.out.println("Due date: "+task.getDueDate() + align + task.toString());
+                }
+                case 's' -> {
+                    String align = space.repeat(40-task.getStatusString().length());//formatting
+                    System.out.println("Status: "+task.getStatusString() + align + task.toString());
+                }
+            }
+
+        }
+        System.out.println();
+    }
+
+
+////ADD MENU
+    /**
+     * Get user input for adding a new task
+     *
+     * @return an array with user input data
+     */
+    public String[] addNewTaskGatherer() {
+
+        String[] newData = new String[3];
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Title :  ");
         String title = scanner.nextLine();
-        String newTitle = UserInputChecker.getNonEmptyString(title, "Title");
+        newData[0] = UserInputChecker.getValidString(title, "Title");
 
         System.out.println("Enter Project related :  ");
         String project = scanner.nextLine();
-        String newProject = UserInputChecker.getNonEmptyString(project, "Project");
+        newData[1] = UserInputChecker.getValidString(project, "Project");
 
         System.out.println("Enter date (YYYY-MM-DD) :");
         String date = scanner.nextLine();
-        String newDueDate = UserInputChecker.getValidDate(date);
+        newData[2] = UserInputChecker.getValidDate(date);
 
-
-        listOfTasks.add(new Task(newTitle, newProject, newDueDate)); // adds the task to the taskFolder arraylist
-        System.out.println("The task has been added successfully ");
-
-    }
+        return newData;
+}
 
     /**
+     * Add a new task to the list.
+     * boolean isDone is set to false by default when a task is added
+     * @param newData: array returned by addNewTaskGatherer() method.
+     */
+    public void addNewTask(String[] newData) {
+        listOfTasks.add(new Task(newData[0], newData[1], newData[2])); // adds the task to the listOfTasks
+    }
+
+
+
+////EDIT MENU
+    /**
      * Display all tasks , display edit menu, process action requested ( update(), markAsDone() , remove() )
-     *
      * @param depth : limit of number of recursions allowed.  (recursive method)
      */
     public void editTask(int depth) {
@@ -238,10 +286,10 @@ public class Menu implements Serializable {
         int index;
         for (index = 0; index < listOfTasks.size(); index++) {
 
-            System.out.print("  (" + (index + 1) + ")  ");
+            System.out.print(" > (" + (index + 1) + ")  ");
             System.out.println(listOfTasks.get(index).toString());
         }
-        System.out.println("  (" + (index + 1) + ")  Back to MAIN menu ");
+        System.out.println(" < (" + (index + 1) + ")  Back to MAIN menu ");
 
         Scanner scanner = new Scanner(System.in);
         try {
@@ -256,17 +304,19 @@ public class Menu implements Serializable {
 
                 System.out.println();
                 System.out.println("""
-                        >>> (1) Update (rename Title/ rename Project / change Due Date) 
-                        >>> (2) Mark as done
-                        >>> (3) Remove
-                        >>> (4) Back to EDIT menu
-                        >>> (5) Back to MAIN menu
+                          > (1) Update (rename Title/ rename Project / change Due Date) 
+                          > (2) Mark as done
+                          > (3) Remove
+                          < (4) Back to EDIT menu
+                          < (5) Back to MAIN menu
                         """);
 
 
                 int actionSelected = scanner.nextInt();
                 switch (actionSelected) {
-                    case 1 -> update(indexSelected);
+                    case 1 -> {
+                         update(indexSelected,updateGatherer(indexSelected));
+                    }
                     case 2 -> markAsDone(indexSelected);
                     case 3 -> removeTask(indexSelected);
                     case 4 -> {
@@ -289,47 +339,90 @@ public class Menu implements Serializable {
 
     }
 
+    /**
+     * Marks as done the task at the index passed
+     * @param index : the index of the task to be proceed
+     */
     public void markAsDone(int index) {
         listOfTasks.get(index).setStatus(true);
         System.out.println("task ( " + listOfTasks.get(index).getTitle() + " ) marked as done");
 
     }
 
+
+////update
     /**
-     * update a task by replacing or not (user choice) the fields through Task class setters
+     * Help function that display adapted menu for updateGatherer(int index)
+     *
+     * @param index the same index
+     * @param mode  't': title , 'p': project , 'd': due date
      */
-    private void update(int index) {
+    public void updatePrintDisplaySentence(int index, char mode) {
+        System.out.print("Press [Enter] to keep the actual value [ ");
+        switch (mode) {
+            case 't' -> {
+                System.out.print(listOfTasks.get(index).getTitle() + " ] :\n New Title : ");
+            }
+            case 'p' -> {
+                System.out.print(listOfTasks.get(index).getProject() + " ] :\n New Project : ");
+            }
+            case 'd' -> {
+                System.out.print(listOfTasks.get(index).getDueDate() + " ] :\n New DueDate : ");
+            }
+        }
+
+    }
+
+    /**
+     * Gather user choice for updating a task
+     * @param index the index chosen which will be modified
+     * @return an array with all the info , null if non modified
+     */
+    public String[] updateGatherer(int index) {
+
+        String[] newData = new String[3];
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Press [Enter] to keep the actual value [ " + listOfTasks.get(index).getTitle() + " ]");
-        System.out.println("Update Title:");
-        String updatedTitle = sc.nextLine();
+        updatePrintDisplaySentence(index,'t');
+        newData[0] = sc.nextLine();
 
-        if (!updatedTitle.equals("")) {
-            listOfTasks.get(index).setTitle(updatedTitle);
+        updatePrintDisplaySentence(index,'p');
+        newData[1] = sc.nextLine();
+
+        updatePrintDisplaySentence(index,'d');
+        newData[2] = sc.nextLine();
+
+
+    return newData;
+    }
+
+    /**
+     * Update a task by replacing the fields through Task class setters.
+     * @param index the index chosen which will be modified
+     * @param newData an String array returned by updateGatherer(int index) methods that collects user input.
+     *                If an empty String is received, data is not updated.
+     */
+    public void update(int index,String [] newData) {
+
+        if (!(newData[0].isEmpty())) {
+            listOfTasks.get(index).setTitle(newData[0]);
         }
 
-        System.out.println("Press [Enter] to keep the actual value [ " + listOfTasks.get(index).getProject() + " ]");
-        System.out.println("Update Project:");
-        String updatedProject = sc.nextLine();
-
-        if (!updatedProject.equals("")) {
-            listOfTasks.get(index).setProject(updatedProject);
+        if (!(newData[1].isEmpty())) {
+            listOfTasks.get(index).setProject(newData[1]);
         }
 
-        System.out.println("Press [Enter] to keep the actual due Date [ " + listOfTasks.get(index).getDueDate() + " ]");
-        System.out.println("Update Due Date :");
-        String updatedDueDate = sc.nextLine();
-
-        if (!updatedDueDate.equals("")) {
-            String newDueDate = UserInputChecker.getValidDate(updatedDueDate);
+        if (!(newData[2].isEmpty())) {
+            String newDueDate = UserInputChecker.getValidDate(newData[2]);
             listOfTasks.get(index).setDueDate(newDueDate);
         }
 
     }
 
-    private void removeTask(int index) {
+
+///remove
+    public void removeTask(int index) {
         System.out.println("task ( " + listOfTasks.get(index).getTitle() + " ) successfully removed");
         listOfTasks.remove(index);
     }
@@ -338,6 +431,8 @@ public class Menu implements Serializable {
      * save to file taskFile.txt using serialization
      */
 
+
+///save and load ( Filereader )
     public void saveToFile() {
         try {
             FileOutputStream fileOut = new FileOutputStream("./src/main/resources/taskFile.txt");
@@ -381,10 +476,11 @@ public class Menu implements Serializable {
         }
     }
 
+
+///quit
     /**
      * exits the program
      */
-
     public void quit() {
         System.exit(0);
     }
