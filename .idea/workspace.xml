@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="-screen">
+    <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/edit_task_menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/edit_task_menu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/quit_menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/sorting_date.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/sorting_date.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img/todolist_class_diagram.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/todolist_class_diagram.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/menu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/menu/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/tasks/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/tasks/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/clecardona/tools/Comparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/clecardona/tools/TaskComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/taskFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/taskFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/taskFile.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +75,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.com.clecardona.tools in todolist">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.clecardona.Main" />
       <module name="todolist" />
@@ -137,22 +128,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuTest.testRemoveATAsk" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="todolist" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.clecardona.menu.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.clecardona.menu" />
-      <option name="MAIN_CLASS_NAME" value="com.clecardona.menu.MenuTest" />
-      <option name="METHOD_NAME" value="testRemoveATAsk" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="UserInputCheckerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
@@ -168,7 +143,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserInputCheckerTest.testIsValidStringWithAnEmptyString" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="com.clecardona.menu in todolist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="todolist" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.clecardona.menu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.clecardona.menu" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.clecardona.tools in todolist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="todolist" />
       <extension name="coverage">
         <pattern>
@@ -177,20 +166,18 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.clecardona.tools" />
-      <option name="MAIN_CLASS_NAME" value="com.clecardona.tools.UserInputCheckerTest" />
-      <option name="METHOD_NAME" value="testIsValidStringWithAnEmptyString" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.com.clecardona.tools in todolist" />
+        <item itemvalue="JUnit.com.clecardona.menu in todolist" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.MenuTest" />
         <item itemvalue="JUnit.UserInputCheckerTest" />
-        <item itemvalue="JUnit.MenuTest.testRemoveATAsk" />
-        <item itemvalue="JUnit.UserInputCheckerTest.testIsValidStringWithAnEmptyString" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +213,7 @@
       <workItem from="1615541269937" duration="40198000" />
       <workItem from="1615981771850" duration="763000" />
       <workItem from="1616141377781" duration="1374000" />
-      <workItem from="1616143260029" duration="6073000" />
+      <workItem from="1616143260029" duration="7178000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>
@@ -382,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616147143166</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="-screenshots updated&#10;-class diagram updated&#10;-formatting display">
+      <created>1616151583431</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1616151583431</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +414,19 @@
     <MESSAGE value="- scanner refactored&#10;- minor formatting" />
     <MESSAGE value="- security push" />
     <MESSAGE value="-general scanner issue fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="-general scanner issue fixed" />
+    <MESSAGE value="-screenshots updated&#10;-class diagram updated&#10;-formatting display" />
+    <option name="LAST_COMMIT_MESSAGE" value="-screenshots updated&#10;-class diagram updated&#10;-formatting display" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/clecardona/menu/Menu.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
