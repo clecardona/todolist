@@ -1,17 +1,17 @@
-package com.clecardona;
+package com.clecardona.tools;
 
-import java.util.Comparator;
+import com.clecardona.tasks.Task;
 
-public class TaskComparator implements Comparator<Task> {
+public class Comparator implements java.util.Comparator<Task> {
 
     ///fields
 
-    private final char compareMode;
+    private final char COMPARE_MODE;
 
     //// constructor
 
-    public TaskComparator(char sortModeSelected) {
-        this.compareMode = sortModeSelected;
+    public Comparator(char sortModeSelected) {
+        this.COMPARE_MODE = sortModeSelected;
     }
 
     /// methods
@@ -26,18 +26,19 @@ public class TaskComparator implements Comparator<Task> {
      */
     public int compare(Task a, Task b) {
         int result = 0;
-        switch (compareMode) {
-            case 'd' -> {
+        switch (COMPARE_MODE) {
+            case 'p' -> {
                 result = a.getProject().compareTo(b.getProject());
             }
-            case 'p' -> {
+            case 'd' -> {
                 result = a.getDueDate().compareTo(b.getDueDate());
             }
             case 's' -> {
-                result = a.getStatus().compareTo(b.getStatus());
+                result = a.getStatusString().compareTo(b.getStatusString());
             }
         }
         return result;
     }
+
 
 }

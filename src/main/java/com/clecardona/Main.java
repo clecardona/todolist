@@ -1,10 +1,11 @@
 package com.clecardona;
 
+import com.clecardona.menu.Menu;
+
 public class Main {
 
     /**
      * This class is the main class of the "Todolist" application.
-     * *
      *
      * @author Clement Cardona
      * @version 2016.02.29
@@ -36,11 +37,17 @@ public class Main {
         while (!askedToQuit) {
 
             menu.displayMenu();
-            askedToQuit = menu.processCommand(); // perform action requested  + return false only if "Save and Quit" is selected
+            askedToQuit = menu.processCommand();// perform action requested  + return false only if "Save and Quit" is selected
+            clearScreen();
 
         }
         menu.sayGoodbye();
         menu.quit();
+    }
+
+    public static void clearScreen() {
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
     }
 
 }
