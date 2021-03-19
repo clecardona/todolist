@@ -6,71 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61e99e00-d2ca-4440-9ca0-e376b6a345ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/allclasses-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/allpackages-index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/menu/Menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/menu/MenuTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/menu/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/menu/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tasks/Task.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tasks/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tasks/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tools/TaskComparator.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tools/UserInputChecker.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tools/UserInputCheckerTest.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tools/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/com/clecardona/tools/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/constant-values.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/deprecated-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/element-list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/help-doc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-11.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-12.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-13.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-14.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index-files/index-9.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/jquery-ui.overrides.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/member-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/module-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/overview-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/overview-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/package-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/resources/glass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/resources/x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_65_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_75_dadada_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_75_e6e6e6_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_glass_95_fef1ec_1x400.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-bg_highlight-soft_75_cccccc_1x100.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_222222_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_2e83ff_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_454545_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_888888_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/images/ui-icons_cd0a0a_256x240.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/jquery-3.5.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script-dir/jquery-ui.structure.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/search.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/serialized-form.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/tag-search-index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadoc/type-search-index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,17 +98,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -278,7 +202,7 @@
       <workItem from="1615541269937" duration="40198000" />
       <workItem from="1615981771850" duration="763000" />
       <workItem from="1616141377781" duration="1374000" />
-      <workItem from="1616143260029" duration="8208000" />
+      <workItem from="1616143260029" duration="8454000" />
     </task>
     <task id="LOCAL-00001" summary="update 25/02">
       <created>1614262434206</created>
@@ -455,7 +379,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616154045074</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="-javadoc">
+      <created>1616154794788</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1616154794788</updated>
+    </task>
+    <task id="LOCAL-00027" summary="-javadoc">
+      <created>1616154808242</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1616154808242</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
