@@ -50,7 +50,7 @@ public class Task extends Menu implements Serializable {
         this.project = project;
     }
 
-    public String getStatusString() {//todo return a boolean or manage it differently
+    public String getStatusString() {
         if (!isDone) {
             return "to do";
         }

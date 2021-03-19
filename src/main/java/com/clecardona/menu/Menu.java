@@ -16,7 +16,6 @@ public class Menu implements Serializable {
 
  ///////////////////fields
     private LinkedList<Task> listOfTasks;
-    private final Scanner scanner;
 
     /**
      * Constructor with no args
@@ -24,7 +23,6 @@ public class Menu implements Serializable {
     public Menu() {
 
         this.listOfTasks = new LinkedList<>();
-        this.scanner = new Scanner(System.in);
     }
 
     /**
@@ -33,7 +31,6 @@ public class Menu implements Serializable {
     public Menu(LinkedList<Task> list) {
 
         this.listOfTasks = list;
-        this.scanner = new Scanner(System.in);
     }
 
     ///////////////////methods
@@ -103,7 +100,7 @@ public class Menu implements Serializable {
 
 
         try {
-
+            Scanner scanner = new Scanner(System.in);
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -150,6 +147,7 @@ public class Menu implements Serializable {
         }
 
         try {
+            Scanner scanner = new Scanner(System.in);
             int userChoice = scanner.nextInt();
 
             switch (userChoice) {
@@ -245,13 +243,14 @@ public class Menu implements Serializable {
      */
     public String[] addNewTaskGatherer() {
 
+        Scanner scanner = new Scanner(System.in);
         String[] newData = new String[3];
 
-        System.out.println("Enter Title :  ");
+        System.out.println("Enter Title (max 40 characters) :  ");
         String title = scanner.nextLine();
         newData[0] = UserInputChecker.getValidString(title, "Title");
 
-        System.out.println("Enter Project related :  ");
+        System.out.println("Enter Project related (max 40 characters) :  ");
         String project = scanner.nextLine();
         newData[1] = UserInputChecker.getValidString(project, "Project");
 
@@ -298,6 +297,7 @@ public class Menu implements Serializable {
         System.out.println(" < (" + (index + 1) + ")  Back to MAIN menu ");
 
         try {
+            Scanner scanner = new Scanner(System.in);
             int indexSelected = scanner.nextInt() - 1;
 
             if (indexSelected == index) {
@@ -315,7 +315,6 @@ public class Menu implements Serializable {
                           < (4) Back to EDIT menu
                           < (5) Back to MAIN menu
                         """);
-
 
                 int actionSelected = scanner.nextInt();
                 switch (actionSelected) {
@@ -384,7 +383,7 @@ public class Menu implements Serializable {
      * @return an array with all the info , null if non modified
      */
     public String[] updateGatherer(int index) {
-
+        Scanner scanner = new Scanner(System.in);
         String[] newData = new String[3];
 
         updatePrintDisplaySentence(index,'t');
@@ -442,7 +441,7 @@ public class Menu implements Serializable {
             out.writeObject(listOfTasks);
             out.close();
             fileOut.close();
-            System.out.println("... saved as taskFile.txt");
+            System.out.println("... saved in taskFile.txt");
         } catch (IOException i) {
             i.printStackTrace();
         }
@@ -481,8 +480,7 @@ public class Menu implements Serializable {
      * exits the program
      */
     public void quit() {
-        scanner.close();
-        System.exit(0);
+    System.exit(0);
     }
 
 

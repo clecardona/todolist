@@ -1,6 +1,6 @@
-# [ todolist ]
+# <img src="https://cdn.onlinewebfonts.com/svg/img_533261.png" alt="logo" width="50"/> [ todolist ]
 
-<img src="https://cdn.onlinewebfonts.com/svg/img_533261.png" alt="logo" width="70"/> 
+
 
 ## Table of contents
 
@@ -103,13 +103,17 @@ Steps to run the **[todolist]** app. After your IDE is open and files imported, 
 ***
 ![Main](img/main_menu.png)
 
-### Show tasks list menu
+### Show tasks list menu (sorting)
 
 ***
 ![show_tasks](img/show_task_menu.png)
 
-### Add new task menu
 
+#### Example of sorting by due date:
+![sorting](img/sorting_date.png)
+
+### Add a new task 
+#### Status will be set as "to do" 
 ***
 ![add_tasks](img/add_task_menu.png)
 

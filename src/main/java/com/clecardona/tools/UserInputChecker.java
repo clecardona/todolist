@@ -16,7 +16,7 @@ public class UserInputChecker {
     public static String getValidString(String str, String typeOfData) {
 
         while (!isAValidString(str)) {
-            System.out.println("Invalid. Please Enter a " + typeOfData + "( < 40 characters) : ");
+            System.out.println("Invalid. Please Enter a " + typeOfData + "(max 40 characters) : ");
             Scanner scanner = new Scanner(System.in);
             str = scanner.nextLine();
 

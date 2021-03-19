@@ -13,9 +13,6 @@ class UserInputCheckerTest {
 
     }
 
-    @Test
-    void getNonEmptyString() { //todo create test
-    }
 
     @Test
     void testIsAValidDateWithCorrectDatesEntered() {
