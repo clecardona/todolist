@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.clecardona"},{"l":"com.clecardona.menu"},{"l":"com.clecardona.tasks"},{"l":"com.clecardona.tools"}];updateSearchResults();
