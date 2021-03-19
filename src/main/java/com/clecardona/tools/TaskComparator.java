@@ -2,7 +2,7 @@ package com.clecardona.tools;
 
 import com.clecardona.tasks.Task;
 
-public class Comparator implements java.util.Comparator<Task> {
+public class TaskComparator implements java.util.Comparator<Task> {
 
     ///fields
 
@@ -10,7 +10,7 @@ public class Comparator implements java.util.Comparator<Task> {
 
     //// constructor
 
-    public Comparator(char sortModeSelected) {
+    public TaskComparator(char sortModeSelected) {
         this.COMPARE_MODE = sortModeSelected;
     }
 

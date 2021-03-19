@@ -1,7 +1,7 @@
 package com.clecardona.menu;
 
 import com.clecardona.tasks.Task;
-import com.clecardona.tools.Comparator;
+import com.clecardona.tools.TaskComparator;
 import com.clecardona.tools.UserInputChecker;
 
 import java.io.*;
@@ -14,7 +14,7 @@ public class Menu implements Serializable {
     @Serial
     private static final long serialVersionUID = 0L;
 
- ///////////////////fields
+    ///////////////////fields
     private LinkedList<Task> listOfTasks;
 
     /**
@@ -38,6 +38,7 @@ public class Menu implements Serializable {
 ////MAIN MENU
 
 ////displays
+
     /**
      * Prints out the opening message for the user
      */
@@ -77,6 +78,7 @@ public class Menu implements Serializable {
 
 
 ////others
+
     /**
      * Returns the the number of task "done"
      */
@@ -93,6 +95,8 @@ public class Menu implements Serializable {
 
     /**
      * Process a command from main menu by scanning user's input
+     *
+     * @return askedToQuit=true if user selected quit
      */
     public boolean processCommand() {
 
@@ -124,13 +128,14 @@ public class Menu implements Serializable {
     }
 
 ////SORTING MENU
+
     /**
      * Display all tasks  display sorting menu, process sorting by title,project or due date.
      *
      * @param depth : limit of number of recursions allowed.  (recursive method)
      */
     public void printDisplayTaskMenu(int depth) {
-                System.out.println("""
+        System.out.println("""
                    > (1) Sort By Due Date (earlier first)
                    > (2) Sort By Project (A-Z)
                    > (3) Sort By Status (done - todo)
@@ -152,23 +157,23 @@ public class Menu implements Serializable {
 
             switch (userChoice) {
                 case 1 -> {
-                    sortedListToString(sortBy('d'),'d');
+                    sortedListToString(sortBy('d'), 'd');
                     depth++;
                     printDisplayTaskMenu(depth);
                 }
                 case 2 -> {
-                    sortedListToString(sortBy('p'),'p');
+                    sortedListToString(sortBy('p'), 'p');
                     depth++;
                     printDisplayTaskMenu(depth);
                 }
                 case 3 -> {
-                    sortedListToString(sortBy('s'),'s');
+                    sortedListToString(sortBy('s'), 's');
                     depth++;
                     printDisplayTaskMenu(depth);
                 }
-                    case 4 -> System.out.println();
-                    default -> System.out.println("\n Enter valid number");
-                }
+                case 4 -> System.out.println();
+                default -> System.out.println("\n Enter valid number");
+            }
         } catch (InputMismatchException i) {
             System.out.println("\n Enter valid number");
             depth++;
@@ -178,6 +183,7 @@ public class Menu implements Serializable {
 
     /**
      * Sort the task by selected mode
+     *
      * @param mode: the mode selected ('d':due date , 'p':project , 's':status )
      */
     public LinkedList<Task> sortBy(char mode) {
@@ -185,15 +191,15 @@ public class Menu implements Serializable {
         switch (mode) {
 
             case 'p' -> {
-                sortedListOfTasks.sort(new Comparator('p'));
+                sortedListOfTasks.sort(new TaskComparator('p'));
             }
             case 'd' -> {
 
-                sortedListOfTasks.sort(new Comparator('d'));
+                sortedListOfTasks.sort(new TaskComparator('d'));
             }
             case 's' -> {
 
-                sortedListOfTasks.sort(new Comparator('s'));
+                sortedListOfTasks.sort(new TaskComparator('s'));
             }
         }
         return sortedListOfTasks;
@@ -201,31 +207,30 @@ public class Menu implements Serializable {
 
     /**
      * Prints the correct data corresponding to the sorted mode selected
+     *
      * @param list: the sorted list to print
      * @param mode: the mode selected ('d':due date , 'p':project , 's':status )
      */
     public void sortedListToString(LinkedList<Task> list, char mode) {
         System.out.println();
-        String space =" ";// used to format the displayed result
-        int i=1;
+        String space = " ";// used to format the displayed result
+        int i = 1;
 
         for (Task task : list) {
 
             switch (mode) {
                 case 'p' -> {
 
-                    String align = space.repeat(40-task.getProject().length());//formatting
-                    System.out.println(i+". Project: "+task.getProject() + align + task.toString());
+                    String align = space.repeat(40 - task.getProject().length());//formatting
+                    System.out.println(i + ". Project: " + task.getProject() + align + task.toString());
                     i++;
                 }
                 case 'd' -> {
-                    String align = space.repeat(40-task.getDueDate().length());//formatting
-                    System.out.println(i+". Due date: "+task.getDueDate() + align + task.toString());
+                    System.out.println(i + ". Due date: " + task.getDueDate() + space.repeat(10) + task.toString());
                     i++;
                 }
                 case 's' -> {
-                    String align = space.repeat(40-task.getStatusString().length());//formatting
-                    System.out.println(i+". Status: "+task.getStatusString() + align + task.toString());
+                    System.out.println(i + ". Status: " + task.getStatusString() + space.repeat(10) + task.toString());
                     i++;
                 }
             }
@@ -236,6 +241,7 @@ public class Menu implements Serializable {
 
 
 ////ADD MENU
+
     /**
      * Get user input for adding a new task
      *
@@ -259,11 +265,12 @@ public class Menu implements Serializable {
         newData[2] = UserInputChecker.getValidDate(date);
 
         return newData;
-}
+    }
 
     /**
      * Add a new task to the list.
      * boolean isDone is set to false by default when a task is added
+     *
      * @param newData: array returned by addNewTaskGatherer() method.
      */
     public void addNewTask(String[] newData) {
@@ -271,14 +278,15 @@ public class Menu implements Serializable {
     }
 
 
-
 ////EDIT MENU
+
     /**
      * Display all tasks , display edit menu, process action requested ( update(), markAsDone() , remove() )
+     *
      * @param depth : limit of number of recursions allowed.  (recursive method)
      */
     public void editTask(int depth) {
-        System.out.println("Select the task you want to edit");
+        System.out.println("Select the task you want to edit : ");
 
         if (listOfTasks.size() == 0) {
             System.out.println("\n No task found");
@@ -289,6 +297,7 @@ public class Menu implements Serializable {
         }
 
         int index;
+
         for (index = 0; index < listOfTasks.size(); index++) {
 
             System.out.print(" > (" + (index + 1) + ")  ");
@@ -319,7 +328,7 @@ public class Menu implements Serializable {
                 int actionSelected = scanner.nextInt();
                 switch (actionSelected) {
                     case 1 -> {
-                         update(indexSelected,updateGatherer(indexSelected));
+                        update(indexSelected, updateGatherer(indexSelected));
                     }
                     case 2 -> markAsDone(indexSelected);
                     case 3 -> removeTask(indexSelected);
@@ -345,6 +354,7 @@ public class Menu implements Serializable {
 
     /**
      * Marks as done the task at the index passed
+     *
      * @param index : the index of the task to be proceed
      */
     public void markAsDone(int index) {
@@ -355,6 +365,7 @@ public class Menu implements Serializable {
 
 
 ////update
+
     /**
      * Help function that display adapted menu for updateGatherer(int index)
      *
@@ -379,6 +390,7 @@ public class Menu implements Serializable {
 
     /**
      * Gather user choice for updating a task
+     *
      * @param index the index chosen which will be modified
      * @return an array with all the info , null if non modified
      */
@@ -386,26 +398,27 @@ public class Menu implements Serializable {
         Scanner scanner = new Scanner(System.in);
         String[] newData = new String[3];
 
-        updatePrintDisplaySentence(index,'t');
+        updatePrintDisplaySentence(index, 't');
         newData[0] = scanner.nextLine();
 
-        updatePrintDisplaySentence(index,'p');
+        updatePrintDisplaySentence(index, 'p');
         newData[1] = scanner.nextLine();
 
-        updatePrintDisplaySentence(index,'d');
+        updatePrintDisplaySentence(index, 'd');
         newData[2] = scanner.nextLine();
 
 
-    return newData;
+        return newData;
     }
 
     /**
      * Update a task by replacing the fields through Task class setters.
-     * @param index the index chosen which will be modified
+     *
+     * @param index   the index chosen which will be modified
      * @param newData an String array returned by updateGatherer(int index) methods that collects user input.
      *                If an empty String is received, data is not updated.
      */
-    public void update(int index,String [] newData) {
+    public void update(int index, String[] newData) {
 
         if (!(newData[0].isEmpty())) {
             listOfTasks.get(index).setTitle(newData[0]);
@@ -423,7 +436,7 @@ public class Menu implements Serializable {
     }
 
 
-///remove
+    ///remove
     public void removeTask(int index) {
         System.out.println("task ( " + listOfTasks.get(index).getTitle() + " ) successfully removed");
         listOfTasks.remove(index);
@@ -431,6 +444,7 @@ public class Menu implements Serializable {
 
 
 ///save and load ( serialization )
+
     /**
      * save to file taskFile.txt (path:./src/main/resources/taskFile.txt ) using serialization
      */
@@ -476,11 +490,12 @@ public class Menu implements Serializable {
 
 
 ///quit
+
     /**
      * exits the program
      */
     public void quit() {
-    System.exit(0);
+        System.exit(0);
     }
 
 

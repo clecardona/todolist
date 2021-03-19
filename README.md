@@ -113,7 +113,7 @@ Steps to run the **[todolist]** app. After your IDE is open and files imported, 
 ![sorting](img/sorting_date.png)
 
 ### Add a new task 
-#### Status will be set as "to do" 
+#### Status will automatically be set as "to do" 
 ***
 ![add_tasks](img/add_task_menu.png)
 
@@ -122,10 +122,6 @@ Steps to run the **[todolist]** app. After your IDE is open and files imported, 
 ***
 ![edit_tasks](img/edit_task_menu.png)
 
-### Save and quit menu
-
-***
-![quit](img/quit_menu.png)
 
 ## Class Diagram
 

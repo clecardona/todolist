@@ -68,10 +68,13 @@ public class Task extends Menu implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
-        return getTitle() + " - " + getProject() + " - " + getDueDate() + " - " + getStatusString();
+        String space = " ";// used to format the displayed result
+        String alignTitle = space.repeat(40 - getTitle().length());
+        String alignProject = space.repeat(40 - getProject().length());
+
+        return getTitle() + alignTitle + getProject() + alignProject + getDueDate() + space.repeat(25) + getStatusString();
     }
 
 }
