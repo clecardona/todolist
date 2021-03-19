@@ -26,9 +26,11 @@ Project is created with:
 
 This project runs on IDE console. User navigates through the menu by selecting actions associated number (1) or (2)
 etc..
+ 
+ 
 
 ### Maven installation
-
+***
 <img src="https://maven.apache.org/images/maven-logo-black-on-white.png" alt="logo" width="70"/> 
 
 Project has been build using **Apache maven 3.6.3**
@@ -68,15 +70,17 @@ Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "10.11.6", arch: "x86_64", family: "mac"
 
 ```
-
 Maven is now installed on your computer!
+ 
+ 
 
 #### Install Maven on Windows :
+[Video Tutorial to install Maven on Windows ](https://www.youtube.com/watch?v=RfCWg5ay5B0)
 
-[![WIN](https://i.ytimg.com/an_webp/RfCWg5ay5B0/mqdefault_6s.webp?du=3000&sqp=CKaxqIIG&rs=AOn4CLD_JtkI_ewIvALxPlllwFgI1yYM-A)](https://www.youtube.com/watch?v=RfCWg5ay5B0)
+
 
 ### Getting started
-
+***
 Steps to run the **[todolist]** app. After your IDE is open and files imported, do the following:
 
 > 1. Go to src > main > java > com.clecardona
